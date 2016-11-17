@@ -1,0 +1,91 @@
+.donenHisseler{
+	background:black;
+
+}
+.logo{
+	background:#C2CCD5;
+	text-align:center;
+	img{
+		height: 80px;
+	}
+}
+.sagird{
+	text-align:center;
+	height:600px;
+	overflow:hidden;
+}
+.muellimler{
+	left:336px;
+}
+.valideyn{
+	left:671px;
+}
+.muellimler,.valideyn{
+	overflow:hidden;
+	position: absolute;
+	top:305px;
+	height:250px;
+	display: inline-block;
+	img{
+		height: 305px;
+	}
+
+}
+.imtahan{
+	overflow:hidden;
+	display:inline-block;
+	position: absolute;
+	right:0;
+	top:80px;
+	height:600px;
+	img{
+		height: 600px;
+	}
+
+}
+
+.quiz,.meeting,.dersCedveli{
+	overflow:hidden;
+	display: inline-block;
+	height:250px;
+	img{
+		height: 305px;
+	}
+
+}
+.elaqe{
+	overflow:hidden;
+	height:125px;
+	display:block;
+	margin-top:225px;
+	img{
+		height: 600px;
+	}
+
+}
+
+@media (max-width:1050px){
+	.donenHisseler{
+		display: none;
+	}
+
+	ul{
+		list-style-type: none;
+		li{
+			height: 100px;
+			overflow: hidden;
+			margin-top: 25px;
+
+			img{
+				margin-top: -100px;
+				height: 100px;
+			}
+		}
+	}
+}
+
+@media (min-width:1050px){
+	ul{
+		display: none;
+	}
+}

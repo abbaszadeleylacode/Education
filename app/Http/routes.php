@@ -12,8 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('logins.sagird_login');
 });
-Route::get('/login', function () {
-    return view('login');
+
+//----------------LOGINLER----------------
+Route::get('/sagird-login', function () {
+    return view('logins.sagird_login');
 });
+Route::get('/admin-login', function () {
+    return view('logins.admin_login');
+});
+Route::get('/muellim-login', function () {
+    return view('logins.muellim_login');
+});
+Route::get('/valideyn-login', function () {
+    return view('logins.valideyn_login');
+});
+
+//----------------PANELLER----------------
+Route::get('/admin-panel', function () {
+    return view('admin.index');
+});
+

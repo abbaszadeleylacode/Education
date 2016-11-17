@@ -20,7 +20,9 @@
 
 		<div class="sagird col-md-3 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər">
+				<a href="">
+					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər">
+				</a>
 			</div>
 		</div>
 

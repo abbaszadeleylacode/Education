@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSagirdsTable extends Migration
+class CreateCandidatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +12,26 @@ class CreateSagirdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sagirds', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
             $table->text('surname');
-            $table->text('address');
-            $table->text('avatar');
-            $table->text('password');
-            $table->text('e-mail');
+            $table->text('ata_adi');
             $table->integer('age');
             $table->integer('sinif_id');
-            $table->text('ata_adi');
             $table->text('city');
+            $table->text('address');
             $table->text('passport_no');
+
+
+            $table->text('photo');
+
+            $table->text('email')->unique();
+            $table->text('password');
+
             $table->integer('phone');
-            $table->text('code');
-            $table->integer('qayib');
+
+
             $table->timestamps();
         });
     }
@@ -40,6 +43,6 @@ class CreateSagirdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sagirds');
+        Schema::drop('candidates');
     }
 }

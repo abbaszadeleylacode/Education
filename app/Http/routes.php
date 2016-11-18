@@ -29,8 +29,15 @@ Route::get('/valideyn-login', function () {
     return view('logins.valideyn_login');
 });
 
+Route::get('/register', function () {
+    return view('logins.qeydiyyat');
+});
+
+
 //----------------PANELLER----------------
 Route::get('/admin-panel', function () {
     return view('admin.index');
 });
 
+//----------------REGISTER CONTROLLER----------------
+Route::post('/registercontrol','registerController@new');

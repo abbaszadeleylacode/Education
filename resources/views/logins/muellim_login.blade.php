@@ -19,16 +19,20 @@
 			</div>
 
 			<div class="panel-body">
-				<input type="text" class="form-control" placeholder="E-poçt ünvanınız">
-				<br>
-				<input type="password" class="form-control" placeholder="Şifrəniz">
-				<br>
+				<form action="" enctype="multipart/form-data" method="post"> 
+					<input class="hidden" type="text" value="" name="id">
+					<input type="text" class="form-control" placeholder="E-poçt ünvanınız">
+					<br>
+					<input type="password" class="form-control" placeholder="Şifrəniz">
+					<br>
 
-				<a href="{{url('sagird-login')}}">Tələbəsiniz?</a>
-				<a href="{{url('admin-login')}}">Adminsiniz?</a>
-				<a href="{{url('valideyn-login')}}">Valideynsiniz?</a>
-				
-				<input type="submit" value="Giriş Et" class="form-control submit">
+					<a href="{{url('sagird-login')}}">Tələbəsiniz?</a>
+					<a href="{{url('admin-login')}}">Adminsiniz?</a>
+					<a href="{{url('valideyn-login')}}">Valideynsiniz?</a>
+					
+					<input type="submit" value="Giriş Et" class="form-control submit">
+					<input type="hidden" name="_token" value="{{csrf_token()}}">
+				</form>
 			</div> 
 		</div>
 	</div>

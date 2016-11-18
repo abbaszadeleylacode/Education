@@ -20,7 +20,7 @@
 
 		<div class="sagird col-md-3 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<a href="">
+				<a href="{{url('sagirdsiyahisi')}}">
 					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər">
 				</a>
 			</div>

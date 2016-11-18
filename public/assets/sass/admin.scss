@@ -90,3 +90,29 @@
 		display: none;
 	}
 }
+
+
+// --------------------------SAGİRDLER PAGESİ--------------------------
+.sagirdButton{
+	color:#0AAAE7;
+	text-decoration:none;
+	transition:all .3s ease;
+	padding:5px;
+	border:2px solid #0AAAE7;
+
+	font-size:17px;
+	&:hover{
+		text-decoration: none;
+		color:white;
+		background:#0AAAE7;
+	}
+}
+
+.bluetable{
+	margin-top:20px;
+	font-size:17px;
+}
+.bluetable tr:nth-child(even){
+	background:#0AAAE7;
+	color:white;
+}

@@ -41,3 +41,6 @@ Route::get('/admin-panel', function () {
 
 //----------------REGISTER CONTROLLER----------------
 Route::post('/registercontrol','registerController@new');
+
+//----------------Admin Panel Sagirdler----------------
+Route::get('/sagirdsiyahisi', 'sagirdController@index');

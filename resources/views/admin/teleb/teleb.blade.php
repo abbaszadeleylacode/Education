@@ -50,20 +50,33 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($sagirdler as $sagird)
+					@foreach($telebler as $teleb)
 						<tr>
-							<td>{{$sagird->id}}</td>
-							<td>{{$sagird->name}}</td>
-							<td>{{$sagird->surname}}</td>
-							<td>{{$sagird->ata_adi}}</td>
-							<td>{{$sagird->age}}</td>
-							<td>{{$sagird->sinif_id}}</td>
-							<td>{{$sagird->city}}</td>
-							<td>{{$sagird->address}}</td>
-							<td>{{$sagird->passport_no}}</td>
-							<td>{{$sagird->photo}}</td>
-							<td>{{$sagird->email}}</td>
-							<td>{{$sagird->phone}}</td>
+							<td>{{$teleb->id}}</td>
+							<td>{{$teleb->name}}</td>
+							<td>{{$teleb->surname}}</td>
+							<td>{{$teleb->ata_adi}}</td>
+							<td>{{$teleb->age}}</td>
+							<td>{{$teleb->sinif_id}}</td>
+							<td>{{$teleb->city}}</td>
+							<td>{{$teleb->address}}</td>
+							<td>{{$teleb->passport_no}}</td>
+							<td>{{$teleb->photo}}</td>
+							<td>{{$teleb->email}}</td>
+							<td>{{$teleb->phone}}</td>
+							<td>
+								<a href="" class="btn btn-xs btn-default">
+									<i class="fa fa-eye"></i>
+								</a>
+
+								<a href="{{url('accept',$teleb->id)}}" class="btn btn-xs btn-success">
+									<i class="fa fa-check"></i>
+								</a>
+
+								<a href="{{url('reject',$teleb->id)}}" class="btn btn-xs btn-danger">
+									<i class="fa fa-trash"></i>
+								</a>
+							</td>
 						</tr>
 					@endforeach
 				</tbody>

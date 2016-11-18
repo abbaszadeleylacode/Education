@@ -14,9 +14,13 @@ class sagirdController extends Controller
 {
     public function index()
     {
-    	$telebler=candidates::all();
     	$sagirdler=sagird::all();
-    	return view('admin.sagirdler',compact('telebler','sagirdler'));
+    	return view('admin.sagirdler',compact('sagirdler'));
+    }
 
+    public function teleb()
+    {
+    	$telebler=candidates::all();
+    	return view('admin.teleb.teleb',compact('telebler'));
     }
 }

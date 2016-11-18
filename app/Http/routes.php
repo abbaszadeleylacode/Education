@@ -41,6 +41,9 @@ Route::get('/admin-panel', function () {
 
 //----------------REGISTER CONTROLLER----------------
 Route::post('/registercontrol','registerController@new');
+Route::get('/accept/{id}','registerController@accept');
+Route::get('/reject/{id}','registerController@reject');
 
 //----------------Admin Panel Sagirdler----------------
 Route::get('/sagirdsiyahisi', 'sagirdController@index');
+Route::get('/telebsiyahisi', 'sagirdController@teleb');

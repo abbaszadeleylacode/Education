@@ -20,7 +20,7 @@ class CreateSagirdsTable extends Migration
             $table->text('address');
             $table->text('avatar');
             $table->text('password');
-            $table->text('e-mail');
+            $table->text('email');
             $table->integer('age');
             $table->integer('sinif_id');
             $table->text('ata_adi');

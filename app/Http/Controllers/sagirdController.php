@@ -36,4 +36,12 @@ class sagirdController extends Controller
         $sagird->delete();
         return back();
     }
+
+    public function axtaris(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $sagirdler=sagird::where([['name',$ad],['surname',$soyad]])->get();
+        return view('admin.sagird.tapilan',compact('sagirdler'));
+    }
 }

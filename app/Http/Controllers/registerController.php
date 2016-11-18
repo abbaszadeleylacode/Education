@@ -77,4 +77,12 @@ class registerController extends Controller
      	return view('admin.teleb.show',compact('telebler'));
      }
 
+     public function axtaris(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $sagirdler=candidates::where([['name',$ad],['surname',$soyad]])->get();
+        return view('admin.teleb.tapilan',compact('sagirdler'));
+    }
+
 }

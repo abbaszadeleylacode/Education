@@ -15,6 +15,15 @@
 		img{
 			height: 40px;
 		}
+
+		.axtar{
+			margin-top: 30px;
+			padding:5px;
+			border:2px solid #0AAAE7;
+			border-radius: 2px;
+			margin-left: 5px;
+			background: none;
+		}
 	</style>
 </head>
 <body>
@@ -31,7 +40,18 @@
 			<a href="{{url('telebsiyahisi')}}" class="sagirdButton btn">Tələblər</a>
 			<a href="{{url('admin-panel')}}" class="sagirdButton btn">Geri</a>
 			
-			<input type="text" name="axtaris" class="form-control pull-right" placeholder="Axtar" style="width: 250px; display: inline-block; margin-top: 30px">
+			<form action="{{url('axtaristeleb')}}" style="display: inline-block;" class="pull-right" method="POST">
+				
+				<button type="submit" class="axtar pull-right">Axtar</button>
+
+				<input type="text" name="soyad" class="form-control pull-right" placeholder="Soyad" style="width: 250px; display: inline-block; margin-top: 30px">
+
+
+				<input type="text" name="ad" class="form-control " placeholder="Ad" style="width: 250px; display: inline-block; margin-top: 30px;margin-right: 10px">
+			
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
+
+			</form>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">

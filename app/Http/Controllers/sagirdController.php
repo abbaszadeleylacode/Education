@@ -23,4 +23,17 @@ class sagirdController extends Controller
     	$telebler=candidates::all();
     	return view('admin.teleb.teleb',compact('telebler'));
     }
+
+    public function show($id)
+    {
+        $sagirdler=sagird::find($id);
+        return view('admin.sagird.show',compact('sagirdler'));
+    }
+
+    public function delete($id)
+    {
+        $sagird=sagird::find($id);
+        $sagird->delete();
+        return back();
+    }
 }

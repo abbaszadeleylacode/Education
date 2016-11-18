@@ -13,7 +13,32 @@ class registerController extends Controller
 {
      public function new(Request $request)
      {
-    	candidates::create($request->all());
+     	
+    	$new=new candidates;
+
+    	$new->name=$request->name;
+    	$new->surname=$request->surname;
+    	$new->ata_adi=$request->ata_adi;
+    	$new->age=$request->age;
+    	$new->sinif_id=$request->sinif_id;
+    	$new->city=$request->city;
+    	$new->address=$request->address;
+    	$new->passport_no=$request->passport_no;
+
+    	if($request->hasFile('photo')){
+    		$file=$request->file('photo');
+    		$filename=time().'.'.$file->getClientOriginalExtension();
+    		$file->move('assets/images/avatars',$filename);
+    		$path='assets/images/avatars/'.$filename;
+    		$new->photo=$path;
+    	}
+
+    	$new->email=$request->email;
+    	$new->password=$request->password;
+    	$new->phone=$request->phone;
+
+    	$new->save();
+    	
     	return back()->with('success','Tələbiniz göndərildi. Sizə tezliklə cavab veriləcək!');
      }
 
@@ -44,6 +69,12 @@ class registerController extends Controller
      	$reject=candidates::find($id);
      	$reject->delete();
      	return back();
+     }
+
+     public function show($id)
+     {
+     	$telebler=candidates::find($id);
+     	return view('admin.teleb.show',compact('telebler'));
      }
 
 }

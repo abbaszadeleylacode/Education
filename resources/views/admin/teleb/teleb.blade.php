@@ -12,6 +12,9 @@
 		.sagirdButton{
 			margin-top: 30px;
 		}
+		img{
+			height: 40px;
+		}
 	</style>
 </head>
 <body>
@@ -61,11 +64,13 @@
 							<td>{{$teleb->city}}</td>
 							<td>{{$teleb->address}}</td>
 							<td>{{$teleb->passport_no}}</td>
-							<td>{{$teleb->photo}}</td>
+							<td>
+								<img src="{{$teleb->photo}}" alt="">
+							</td>
 							<td>{{$teleb->email}}</td>
 							<td>{{$teleb->phone}}</td>
 							<td>
-								<a href="" class="btn btn-xs btn-default">
+								<a href="{{url('showteleb',$teleb->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
 

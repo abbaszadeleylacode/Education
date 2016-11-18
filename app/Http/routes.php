@@ -43,7 +43,12 @@ Route::get('/admin-panel', function () {
 Route::post('/registercontrol','registerController@new');
 Route::get('/accept/{id}','registerController@accept');
 Route::get('/reject/{id}','registerController@reject');
+Route::get('/showteleb/{id}','registerController@show');
 
 //----------------Admin Panel Sagirdler----------------
 Route::get('/sagirdsiyahisi', 'sagirdController@index');
 Route::get('/telebsiyahisi', 'sagirdController@teleb');
+
+	//----------------Sagirdler(ADMIN PANELDE)----------------
+	Route::get('/showsagird/{id}', 'sagirdController@show');
+	Route::get('/deletesagird/{id}', 'sagirdController@delete');

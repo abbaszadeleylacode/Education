@@ -12,6 +12,9 @@
 		.sagirdButton{
 			margin-top: 30px;
 		}
+		img{
+			height: 40px;
+		}
 	</style>
 </head>
 <body>
@@ -61,9 +64,20 @@
 							<td>{{$sagird->city}}</td>
 							<td>{{$sagird->address}}</td>
 							<td>{{$sagird->passport_no}}</td>
-							<td>{{$sagird->photo}}</td>
+							<td>
+								<img src="{{$sagird->avatar}}" alt="">
+							</td>
 							<td>{{$sagird->email}}</td>
 							<td>{{$sagird->phone}}</td>
+							<td>
+								<a href="{{url('showsagird',$sagird->id)}}" class="btn btn-xs btn-default">
+									<i class="fa fa-eye"></i>
+								</a>
+
+								<a href="{{url('deletesagird',$sagird->id)}}" class="btn btn-xs btn-danger">
+									<i class="fa fa-trash"></i>
+								</a>
+							</td>
 						</tr>
 					@endforeach
 				</tbody>

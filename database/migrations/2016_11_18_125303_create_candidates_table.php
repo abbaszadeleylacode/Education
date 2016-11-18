@@ -26,7 +26,7 @@ class CreateCandidatesTable extends Migration
 
             $table->text('photo');
 
-            $table->text('email')->unique();
+            $table->text('email');
             $table->text('password');
 
             $table->integer('phone');

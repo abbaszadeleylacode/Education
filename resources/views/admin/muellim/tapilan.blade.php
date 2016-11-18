@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tələblər</title>
+	<title>Müəllim</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -27,8 +27,8 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('sagirdsiyahisi')}}" class="sagirdButton btn">Qeydiyyatda olan şagirdlər</a>
-			<a href="{{url('telebsiyahisi')}}" class="sagirdButton btn">Tələblər</a>
+			<a href="{{url('addteacher')}}" class="sagirdButton btn">Müəllim əlavə et</a>
+			<a href="{{url('muellimsiyahisi')}}" class="sagirdButton btn">Müəllimlər</a>
 			<a href="{{url('admin-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
@@ -38,12 +38,7 @@
 						<td>ID</td>
 						<td>Ad</td>
 						<td>Soyad</td>
-						<td>Ata adı</td>
-						<td>Yaş</td>
-						<td>Sinif</td>
-						<td>Şəhər</td>
-						<td>Ünvan</td>
-						<td>Vəsiqə №</td>
+						<td>Fənn</td>
 						<td>Şəkil</td>
 						<td>E-poçt ünvanı</td>
 						<td>Telefon</td>
@@ -51,28 +46,23 @@
 					</tr>
 				</thead>
 				<tbody>
-						@foreach($sagirdler as $sagird)
+						@foreach($muellimler as $muellim)
 							<tr>
-								<td>{{$sagird->id}}</td>
-								<td>{{$sagird->name}}</td>
-								<td>{{$sagird->surname}}</td>
-								<td>{{$sagird->ata_adi}}</td>
-								<td>{{$sagird->age}}</td>
-								<td>{{$sagird->sinif_id}}</td>
-								<td>{{$sagird->city}}</td>
-								<td>{{$sagird->address}}</td>
-								<td>{{$sagird->passport_no}}</td>
+								<td>{{$muellim->id}}</td>
+								<td>{{$muellim->name}}</td>
+								<td>{{$muellim->surname}}</td>
+								<td>{{$muellim->ders_id}}</td>
 								<td>
-									<img src="{{$sagird->avatar}}" alt="">
+									<img src="{{$muellim->avatar}}" alt="">	
 								</td>
-								<td>{{$sagird->email}}</td>
-								<td>{{$sagird->phone}}</td>
+								<td>{{$muellim->email}}</td>
+								<td>{{$muellim->phone}}</td>
 								<td>
-									<a href="{{url('showsagird',$sagird->id)}}" class="btn btn-xs btn-default">
+									<a href="{{url('showmuellim',$muellim->id)}}" class="btn btn-xs btn-default">
 										<i class="fa fa-eye"></i>
 									</a>
 
-									<a href="{{url('deletesagird',$sagird->id)}}" class="btn btn-xs btn-danger">
+									<a href="{{url('deletemuellim',$muellim->id)}}" class="btn btn-xs btn-danger">
 										<i class="fa fa-trash"></i>
 									</a>
 								</td>

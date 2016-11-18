@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Qeydiyyat</title>
+	<title>Müəllim</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -20,7 +20,7 @@
 
 			<div class="panel-body">
 				
-				<form action="{{url('registercontrol')}}" enctype="multipart/form-data" method="post">
+				<form action="{{url('saveteacher')}}" enctype="multipart/form-data" method="post">
 					 @if ($message = Session::get('success'))
 				        <p>{{$message}}</p>
 				     @endif
@@ -30,11 +30,7 @@
 					<br>
 					<input type="text" placeholder="Soyadınız" name="surname" class="form-control">
 					<br>
-					<input type="text" placeholder="Ata adı" name="ata_adi" class="form-control">
-					<br>
-					<input type="number" placeholder="Yaşınız" name="age" class="form-control">
-					<br>
-					<select name="sinif_id" id="" value="Sinif" class="form-control">
+					<select name="ders_id" id="" value="Sinif" class="form-control">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -47,12 +43,6 @@
 						<option value="10">10</option>
 						<option value="11">11</option>
 					</select>
-					<br>
-					<input type="text" placeholder="Şəhər" name="city" class="form-control">
-					<br>
-					<input type="text" placeholder="Ünvanınız" name="address" class="form-control">
-					<br>
-					<input type="text" placeholder="Vəsiqənizin nömrəsi" name="passport_no" class="form-control">
 					<br>
 					<input type="file" placeholder="Şəkiliniz" name="photo" class="form-control">
 					<br>

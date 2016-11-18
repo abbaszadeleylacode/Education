@@ -54,3 +54,11 @@ Route::get('/telebsiyahisi', 'sagirdController@teleb');
 	Route::get('/showsagird/{id}', 'sagirdController@show');
 	Route::get('/deletesagird/{id}', 'sagirdController@delete');
 	Route::post('/axtaris', 'sagirdController@axtaris');
+
+//----------------Admin Panel Muellimler----------------
+Route::get('muellimsiyahisi','muellimController@index');
+Route::get('addteacher','muellimController@add');
+Route::post('saveteacher','muellimController@save');
+Route::post('axtarismuellim','muellimController@axtaris');
+Route::get('deletemuellim/{id}','muellimController@delete');
+Route::get('showmuellim/{id}','muellimController@show');

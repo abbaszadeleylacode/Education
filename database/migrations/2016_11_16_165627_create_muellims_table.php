@@ -17,10 +17,11 @@ class CreateMuellimsTable extends Migration
             $table->increments('id');
             $table->text('name');
             $table->text('surname');
-            $table->text('e-mail');
+            $table->text('email');
             $table->text('password');
             $table->integer('ders_id');
             $table->text('avatar');
+            $table->integer('phone');
             $table->timestamps();
         });
     }

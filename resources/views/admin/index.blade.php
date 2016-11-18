@@ -46,7 +46,9 @@
 
 		<div class="muellimler col-md-3 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər">
+				<a href="{{url('muellimsiyahisi')}}">
+					<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər">
+				</a>
 			</div>
 		</div>
 

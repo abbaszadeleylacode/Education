@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tələblər</title>
+	<title>Müəllim</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -32,30 +32,22 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('telebsiyahisi')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('muellimsiyahisi')}}" class="sagirdButton btn">Geri</a>
 			
-			<h1>TƏLƏB HAQQINDA</h1>
+			<h1>MÜƏLLİM HAQQINDA</h1>
 
-			<img src="../{{$telebler->photo}}" class="pull-right img img-responsive profile">
-			<strong>Nömrə: {{$telebler->id}}</strong>
+			<img src="../{{$muellim->avatar}}" class="pull-right img img-responsive profile">
+			<strong>Nömrə: {{$muellim->id}}</strong>
 			<br>
-			<strong>Ad: {{$telebler->name}}</strong>
+			<strong>Ad: {{$muellim->name}}</strong>
 			<br>
-			<strong>Soyad: {{$telebler->surname}}</strong>
+			<strong>Soyad: {{$muellim->surname}}</strong>
 			<br>
-			<strong>Ata adı: {{$telebler->ata_adi}}</strong>
+			<strong>Sinif: {{$muellim->ders_id}}</strong>
 			<br>
-			<strong>Yaş: {{$telebler->age}}</strong>
+			<strong>E-poçt ünvanı: {{$muellim->email}}</strong>
 			<br>
-			<strong>Sinif: {{$telebler->sinif_id}}</strong>
-			<br>
-			<strong>Şəhər: {{$telebler->city}}</strong>
-			<br>
-			<strong>Ünvan: {{$telebler->address}}</strong>
-			<br>
-			<strong>Vəsiqə №: {{$telebler->passport_no}}</strong>
-			<br>
-			<strong>E-poçt ünvanı: {{$telebler->email}}</strong>
+			<strong>Telefon: {{$muellim->phone}}</strong>
 		</div>
 	</div>
 </div>

@@ -44,4 +44,38 @@ class sagirdController extends Controller
         $sagirdler=sagird::where([['name',$ad],['surname',$soyad]])->get();
         return view('admin.sagird.tapilan',compact('sagirdler'));
     }
+
+
+
+    // Muellim ucun olan functionlar=======================---------------
+
+    public function sagirdMuellim()
+    {
+        $sagirdler=sagird::all();
+        return view('muellim.sagird.index',compact('sagirdler'));
+    }
+
+    public function axtarisMuellim(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $sagirdler=sagird::where([['name',$ad],['surname',$soyad]])->get();
+        return view('muellim.sagird.tapilan',compact('sagirdler'));
+    }
+
+    public function showMuellim($id)
+    {
+        $sagirdler=sagird::find($id);
+        return view('muellim.sagird.show',compact('sagirdler'));
+    }
+
+    public function qayib($id)
+    {
+        $sagird=sagird::find($id);
+        $qayib=$sagird->qayib;
+        $qayib=$qayib+1;
+        $sagird->qayib=$qayib;
+        $sagird->save();
+        return back();
+    }
 }

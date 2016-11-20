@@ -38,6 +38,9 @@ Route::get('/register', function () {
 Route::get('/admin-panel', function () {
     return view('admin.index');
 });
+Route::get('/muellim-panel', function () {
+    return view('muellim.index');
+});
 
 //----------------REGISTER CONTROLLER----------------
 Route::post('/registercontrol','registerController@new');
@@ -76,3 +79,10 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('elaveet/{id}','dersController@elaveet');
 	Route::get('cixar/{id}','dersController@cixar');
 
+
+//----------------Muellim Panel----------------
+	//----------------Muellim Panel Sagirdler----------------
+	Route::get('sagird(muellim)','sagirdController@sagirdMuellim');
+	Route::post('axtaris(muellim)','sagirdController@axtarisMuellim');
+	Route::get('/showsagird(muellim)/{id}', 'sagirdController@showMuellim');
+	Route::get('/qayib/{id}', 'sagirdController@qayib');

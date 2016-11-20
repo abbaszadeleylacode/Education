@@ -46,19 +46,33 @@ Route::get('/reject/{id}','registerController@reject');
 Route::get('/showteleb/{id}','registerController@show');
 Route::post('/axtaristeleb', 'registerController@axtaris');
 
-//----------------Admin Panel Sagirdler----------------
-Route::get('/sagirdsiyahisi', 'sagirdController@index');
-Route::get('/telebsiyahisi', 'sagirdController@teleb');
 
-	//----------------Sagirdler(ADMIN PANELDE)----------------
-	Route::get('/showsagird/{id}', 'sagirdController@show');
-	Route::get('/deletesagird/{id}', 'sagirdController@delete');
-	Route::post('/axtaris', 'sagirdController@axtaris');
+//----------------Admin Panel----------------
+	//----------------Admin Panel Sagirdler----------------
+	Route::get('/sagirdsiyahisi', 'sagirdController@index');
+	Route::get('/telebsiyahisi', 'sagirdController@teleb');
 
-//----------------Admin Panel Muellimler----------------
-Route::get('muellimsiyahisi','muellimController@index');
-Route::get('addteacher','muellimController@add');
-Route::post('saveteacher','muellimController@save');
-Route::post('axtarismuellim','muellimController@axtaris');
-Route::get('deletemuellim/{id}','muellimController@delete');
-Route::get('showmuellim/{id}','muellimController@show');
+		//----------------Sagirdler(ADMIN PANELDE)----------------
+		Route::get('/showsagird/{id}', 'sagirdController@show');
+		Route::get('/deletesagird/{id}', 'sagirdController@delete');
+		Route::post('/axtaris', 'sagirdController@axtaris');
+
+	//----------------Admin Panel Muellimler----------------
+	Route::get('muellimsiyahisi','muellimController@index');
+	Route::get('addteacher','muellimController@add');
+	Route::post('saveteacher','muellimController@save');
+	Route::post('axtarismuellim','muellimController@axtaris');
+	Route::get('deletemuellim/{id}','muellimController@delete');
+	Route::get('showmuellim/{id}','muellimController@show');
+
+	//----------------Admin Panel Ders Cedveli----------------
+	Route::get('derscedveli','dersController@index');
+	Route::get('showsinif/{id}','dersController@show');
+	Route::get('sinifyarat','dersController@yarat');
+	Route::post('yaratsinif','dersController@save');
+	Route::get('deletesinif/{id}','dersController@delete');
+	Route::get('updatesinif/{id}','dersController@yenile');
+	Route::get('addsagird/{id}','dersController@add');
+	Route::get('elaveet/{id}','dersController@elaveet');
+	Route::get('cixar/{id}','dersController@cixar');
+

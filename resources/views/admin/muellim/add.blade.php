@@ -52,7 +52,7 @@
 					<br>
 					<input type="number" placeholder="Telefon nömrəniz" name="phone" class="form-control">
 					<br>
-					<input type="submit" value="Qeydiyyatdan keç" class="form-control submit">
+					<input type="submit" value="Əlavə et" class="form-control submit">
 
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 				</form>				

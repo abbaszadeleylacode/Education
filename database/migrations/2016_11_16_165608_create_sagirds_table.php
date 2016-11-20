@@ -22,7 +22,7 @@ class CreateSagirdsTable extends Migration
             $table->text('password');
             $table->text('email');
             $table->integer('age');
-            $table->integer('sinif_id');
+            $table->text('sinif_id');
             $table->text('ata_adi');
             $table->text('city');
             $table->text('passport_no');

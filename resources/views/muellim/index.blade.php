@@ -40,7 +40,7 @@
 
 		<div class="dersCedveli col-md-2 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<a href="{{url('derscedveli')}}">
+				<a href="{{url('sinifler-muellim',$muellim->id)}}">
 					<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli">
 				</a>
 			</div>
@@ -48,7 +48,7 @@
 
 		<div class="muellimler col-md-3 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<a href="{{url('muellimsiyahisi')}}">
+				<a href="{{url('muellim(muellim)')}}">
 					<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər">
 				</a>
 			</div>

@@ -29,7 +29,8 @@ class muellimController extends Controller
 
     	$new->name=$request->name;
     	$new->surname=$request->surname;
-    	$new->ders_id=$request->ders_id;
+    	$new->fenn=$request->fenn;
+        $new->ders_id='neytral';
 
     	if($request->hasFile('photo')){
     		$file=$request->file('photo');
@@ -67,5 +68,29 @@ class muellimController extends Controller
     {
     	$muellim=muellim::find($id);
     	return view('admin.muellim.show',compact('muellim'));
+    }
+
+
+
+    // Muellimler ucun olan functionlar-------------------------
+
+    public function indexMuellim()
+    {
+        $muellimler=muellim::all();
+        return view('muellim.muellim.index',compact('muellimler'));
+    }
+
+     public function axtarisMuellim(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $muellimler=muellim::where([['name',$ad],['surname',$soyad]])->get();
+        return view('muellim.muellim.tapilan',compact('muellimler'));
+    }
+
+    public function showMuellim($id)
+    {
+        $muellim=muellim::find($id);
+        return view('muellim.muellim.show',compact('muellim'));
     }
 }

@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\sinif;
 use App\sagird;
-
+use App\muellim;
 class dersController extends Controller
 {
     public function index()
@@ -66,6 +66,13 @@ class dersController extends Controller
         return view('admin.sinifler.sagirdler',compact('sagirdler','sinif'));
     }
 
+    public function addMuellim($id)
+    {
+        $sinif=sinif::find($id);
+        $muellimler=muellim::where('ders_id','=',$sinif->text)->get();
+        return view('admin.sinifler.muellim',compact('muellimler','sinif'));
+    }
+
     public function elaveet(Request $request,$id)
     {
         $name=$request->name;
@@ -80,11 +87,44 @@ class dersController extends Controller
         return back();
     }
 
+    public function elaveetMuellim(Request $request,$id)
+    {
+        $name=$request->name;
+        $surname=$request->surname;
+
+        $muellim=muellim::where([['name',$name],['surname',$surname]])->first();
+
+        $sinifAdi=sinif::find($id)->text;
+
+        $muellim->ders_id=$sinifAdi;
+        $muellim->save();
+        return back();
+    }
+
+
+    public function cixarMuellim($id)
+    {
+        $muellim=muellim::find($id);
+        $muellim->ders_id='neytral';
+        $muellim->save();
+        return back();
+    }
+
     public function cixar($id)
     {
         $sagird=sagird::find($id);
         $sagird->sinif_id='neytral';
         $sagird->save();
         return back();
+    }
+
+
+    // Muellim-panel ucun olan functionlar----------------------------------
+
+    public function indexMuellim($id)
+    {
+        $ders_id=muellim::find($id);
+        // $sinifler=sinif::where('');
+        return view('muellim.sinifler.index',compact('sinifler'));
     }
 }

@@ -19,11 +19,14 @@
 			</div>
 
 			<div class="panel-body">
-				<form action="" enctype="multipart/form-data" method="post"> 
+				 @if ($message = Session::get('wrong'))
+				    <p>{{$message}}</p>
+				 @endif
+				<form action="{{url('checkMuellim')}}" enctype="multipart/form-data" method="post"> 
 					<input class="hidden" type="text" value="" name="id">
-					<input type="text" class="form-control" placeholder="E-poçt ünvanınız">
+					<input type="text" name="email" class="form-control" placeholder="E-poçt ünvanınız">
 					<br>
-					<input type="password" class="form-control" placeholder="Şifrəniz">
+					<input type="password" name="password" class="form-control" placeholder="Şifrəniz">
 					<br>
 
 					<a href="{{url('sagird-login')}}">Tələbəsiniz?</a>

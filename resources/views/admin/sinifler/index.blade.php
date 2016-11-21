@@ -61,6 +61,10 @@
 								<a href="{{url('addsagird',$sinif->id)}}" class="btn btn-xs btn-success">
 									<i class="fa fa-users"></i>
 								</a>
+
+								<a href="{{url('sinifMuellimleri',$sinif->id)}}" class="btn btn-xs btn-warning">
+									<i class="fa fa-plus"></i>
+								</a>
 							</td>
 						</tr>
 					@endforeach

@@ -19,7 +19,8 @@ class CreateMuellimsTable extends Migration
             $table->text('surname');
             $table->text('email');
             $table->text('password');
-            $table->integer('ders_id');
+            $table->text('ders_id');
+            $table->text('fenn');
             $table->text('avatar');
             $table->integer('phone');
             $table->timestamps();

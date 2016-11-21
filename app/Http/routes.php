@@ -38,9 +38,10 @@ Route::get('/register', function () {
 Route::get('/admin-panel', function () {
     return view('admin.index');
 });
-Route::get('/muellim-panel', function () {
-    return view('muellim.index');
-});
+//----------------LOGIN CONTROLLER----------------
+Route::post('/checkMuellim','loginController@muellim');
+
+
 
 //----------------REGISTER CONTROLLER----------------
 Route::post('/registercontrol','registerController@new');
@@ -77,7 +78,10 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('updatesinif/{id}','dersController@yenile');
 	Route::get('addsagird/{id}','dersController@add');
 	Route::get('elaveet/{id}','dersController@elaveet');
+	Route::get('sinifMuellimleri/{id}','dersController@addMuellim');
+	Route::get('elaveetMuellim/{id}','dersController@elaveetMuellim');
 	Route::get('cixar/{id}','dersController@cixar');
+	Route::get('cixarMuellim/{id}','dersController@cixarMuellim');
 
 
 //----------------Muellim Panel----------------
@@ -86,3 +90,11 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::post('axtaris(muellim)','sagirdController@axtarisMuellim');
 	Route::get('/showsagird(muellim)/{id}', 'sagirdController@showMuellim');
 	Route::get('/qayib/{id}', 'sagirdController@qayib');
+
+	//----------------Muellim Panel Muellimler----------------
+	Route::get('muellim(muellim)','muellimController@indexMuellim');
+	Route::post('axtarismuellim-muellim', 'muellimController@axtarisMuellim');
+	Route::get('showmuellim-muellim/{id}','muellimController@showMuellim');
+
+	//----------------Muellim Panel Sinifler(ders cedvelleri)----------------
+	Route::get('sinifler-muellim/{id}','dersController@indexMuellim');

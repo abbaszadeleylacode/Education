@@ -32,7 +32,7 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('muellimsiyahisi')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('muellim(muellim)')}}" class="sagirdButton btn">Geri</a>
 			
 			<h1>MÜƏLLİM HAQQINDA</h1>
 

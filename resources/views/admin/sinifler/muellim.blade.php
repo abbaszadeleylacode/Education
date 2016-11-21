@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Müəllim</title>
+	<title>Siniflər(Dərs Cədvəlləri)</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -15,6 +15,7 @@
 		img{
 			height: 40px;
 		}
+
 		.axtar{
 			margin-top: 30px;
 			padding:5px;
@@ -35,19 +36,16 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('muellim-panel')}}" class="sagirdButton btn">Geri</a>
-			
-			<form action="{{url('axtarismuellim-muellim')}}" style="display: inline-block;" class="pull-right" method="POST">
+			<a href="{{url('derscedveli')}}" class="sagirdButton btn">Geri</a>
+			<form action="{{url('elaveetMuellim',$sinif->id)}}" style="display: inline-block;" class="pull-right" method="patch">
+				<button type="submit" class="axtar pull-right">Əlavə et</button>
+
+				<input type="text" name="surname" placeholder="Soyad" class="form-control pull-right col-md-3" style="width: 250px; display: inline-block; margin-top: 30px">
+
+				<input type="text" name="name" placeholder="Ad" class="form-control pull-right col-md-3" style="width: 250px; display: inline-block; margin-top: 30px; margin-right:10px">
 				
-				<button type="submit" class="axtar pull-right">Axtar</button>
 
-				<input type="text" name="soyad" class="form-control pull-right" placeholder="Soyad" style="width: 250px; display: inline-block; margin-top: 30px">
-
-
-				<input type="text" name="ad" class="form-control " placeholder="Ad" style="width: 250px; display: inline-block; margin-top: 30px;margin-right: 10px">
-			
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
-
 			</form>
 
 			{{-- Table========================== --}}
@@ -58,8 +56,7 @@
 						<td>Ad</td>
 						<td>Soyad</td>
 						<td>Şəkil</td>
-						<td>Fənn</td>
-						<td>E-poçt ünvanı</td>
+						<td>E-poçt</td>
 						<td>Telefon</td>
 						<td>Əməllər</td>
 					</tr>
@@ -71,14 +68,13 @@
 							<td>{{$muellim->name}}</td>
 							<td>{{$muellim->surname}}</td>
 							<td>
-								<img src="{{$muellim->avatar}}" alt="">
+								<img src="../{{$muellim->avatar}}" alt="">
 							</td>
-							<td>{{$muellim->ders_id}}</td>
 							<td>{{$muellim->email}}</td>
 							<td>{{$muellim->phone}}</td>
 							<td>
-								<a href="{{url('showmuellim-muellim',$muellim->id)}}" class="btn btn-xs btn-default">
-									<i class="fa fa-eye"></i>
+								<a href="{{url('cixarMuellim',$muellim->id)}}" class="btn btn-xs btn-danger">
+									<i class="fa fa-trash"></i>
 								</a>
 							</td>
 						</tr>

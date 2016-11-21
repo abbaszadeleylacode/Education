@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Müəllim</title>
+	<title>Siniflər(Dərs Cədvəlləri)</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -35,33 +35,33 @@
 					<tr>
 						<td>ID</td>
 						<td>Ad</td>
-						<td>Soyad</td>
-						<td>Fənn</td>
-						<td>Şəkil</td>
-						<td>E-poçt ünvanı</td>
-						<td>Telefon</td>
 						<td>Əməllər</td>
 					</tr>
 				</thead>
 				<tbody>
-						@foreach($muellimler as $muellim)
-							<tr>
-								<td>{{$muellim->id}}</td>
-								<td>{{$muellim->name}}</td>
-								<td>{{$muellim->surname}}</td>
-								<td>{{$muellim->ders_id}}</td>
-								<td>
-									<img src="{{$muellim->avatar}}" alt="">	
-								</td>
-								<td>{{$muellim->email}}</td>
-								<td>{{$muellim->phone}}</td>
-								<td>
-									<a href="{{url('showmuellim-muellim',$muellim->id)}}" class="btn btn-xs btn-default">
-										<i class="fa fa-eye"></i>
-									</a>
-								</td>
-							</tr>
-						@endforeach
+					@foreach($sinifler as $sinif)
+						<tr>
+							<td>{{$sinif->id}}</td>
+							<td>{{$sinif->text}}</td>
+							<td>
+								<a href="{{url('showsinif',$sinif->id)}}" class="btn btn-xs btn-default">
+									<i class="fa fa-eye"></i>
+								</a>
+
+								<a href="{{url('updatesinif',$sinif->id)}}" class="btn btn-xs btn-primary">
+									<i class="fa fa-cog"></i>
+								</a>
+
+								<a href="{{url('deletesinif',$sinif->id)}}" class="btn btn-xs btn-danger">
+									<i class="fa fa-trash"></i>
+								</a>
+
+								<a href="{{url('addsagird',$sinif->id)}}" class="btn btn-xs btn-success">
+									<i class="fa fa-users"></i>
+								</a>
+							</td>
+						</tr>
+					@endforeach
 				</tbody>
 			</table>
 		</div>

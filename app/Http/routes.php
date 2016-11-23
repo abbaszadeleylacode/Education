@@ -38,6 +38,10 @@ Route::get('/register', function () {
 Route::get('/admin-panel', function () {
     return view('admin.index');
 });
+
+Route::get('/muellim-panel', function () {
+    return view('muellim.index');
+});
 //----------------LOGIN CONTROLLER----------------
 Route::post('/checkMuellim','loginController@muellim');
 
@@ -81,7 +85,7 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('sinifMuellimleri/{id}','dersController@addMuellim');
 	Route::get('elaveetMuellim/{id}','dersController@elaveetMuellim');
 	Route::get('cixar/{id}','dersController@cixar');
-	Route::get('cixarMuellim/{id}','dersController@cixarMuellim');
+	Route::get('cixarMuellim/{sd}/{id}','dersController@cixarMuellim');
 
 
 //----------------Muellim Panel----------------

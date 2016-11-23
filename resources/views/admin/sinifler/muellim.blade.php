@@ -73,7 +73,7 @@
 							<td>{{$muellim->email}}</td>
 							<td>{{$muellim->phone}}</td>
 							<td>
-								<a href="{{url('cixarMuellim',$muellim->id)}}" class="btn btn-xs btn-danger">
+								<a href="{{url('cixarMuellim',$sinif->id.'/'.$muellim->id)}}" class="btn btn-xs btn-danger">
 									<i class="fa fa-trash"></i>
 								</a>
 							</td>

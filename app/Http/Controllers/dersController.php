@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\sinif;
 use App\sagird;
 use App\muellim;
+use App\muellim_sinif;
 class dersController extends Controller
 {
     public function index()
@@ -69,7 +70,13 @@ class dersController extends Controller
     public function addMuellim($id)
     {
         $sinif=sinif::find($id);
-        $muellimler=muellim::where('ders_id','=',$sinif->text)->get();
+        $sinifMuellimleri=muellim_sinif::where('sinif_id',$id)->get();
+        $muellimler=array();
+        for($i=0;$i<count($sinifMuellimleri);$i++){
+           $muellimId= $sinifMuellimleri[$i]->muellim_id;
+           $muellim=muellim::where('id',$muellimId)->first();
+           array_push($muellimler,$muellim);
+        }
         return view('admin.sinifler.muellim',compact('muellimler','sinif'));
     }
 
@@ -93,20 +100,27 @@ class dersController extends Controller
         $surname=$request->surname;
 
         $muellim=muellim::where([['name',$name],['surname',$surname]])->first();
+        $muellimId=$muellim->id;
 
-        $sinifAdi=sinif::find($id)->text;
 
-        $muellim->ders_id=$sinifAdi;
-        $muellim->save();
+        $sinifId=sinif::find($id)->id;
+
+        
+
+        $newSinif=new muellim_sinif;
+        $newSinif->muellim_id=$muellimId;
+        $newSinif->sinif_id=$sinifId;
+
+        $newSinif->save();
+
         return back();
     }
 
 
-    public function cixarMuellim($id)
+    public function cixarMuellim($sd,$id)
     {
-        $muellim=muellim::find($id);
-        $muellim->ders_id='neytral';
-        $muellim->save();
+        $deleteMuellim=muellim_sinif::where([['muellim_id',$id],['sinif_id',$sd]])->first();
+        $deleteMuellim->delete();
         return back();
     }
 

@@ -30,7 +30,6 @@ class muellimController extends Controller
     	$new->name=$request->name;
     	$new->surname=$request->surname;
     	$new->fenn=$request->fenn;
-        $new->ders_id='neytral';
 
     	if($request->hasFile('photo')){
     		$file=$request->file('photo');

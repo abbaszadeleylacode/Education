@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -37,10 +37,6 @@ Route::get('/register', function () {
 //----------------PANELLER----------------
 Route::get('/admin-panel', function () {
     return view('admin.index');
-});
-
-Route::get('/muellim-panel', function () {
-    return view('muellim.index');
 });
 //----------------LOGIN CONTROLLER----------------
 Route::post('/checkMuellim','loginController@muellim');
@@ -88,7 +84,17 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('cixarMuellim/{sd}/{id}','dersController@cixarMuellim');
 
 
-//----------------Muellim Panel----------------
+
+if(isset($_SESSION['muellimTrue'])){
+	Route::get('/muellim-panel', function () {
+    	return view('muellim.index');
+	});
+
+
+
+
+	//----------------Muellim Panel----------------
+	Route::get('muellim-panel/logout','loginController@logoutMuellim');//logout muellim;
 	//----------------Muellim Panel Sagirdler----------------
 	Route::get('sagird(muellim)','sagirdController@sagirdMuellim');
 	Route::post('axtaris(muellim)','sagirdController@axtarisMuellim');
@@ -102,3 +108,9 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 
 	//----------------Muellim Panel Sinifler(ders cedvelleri)----------------
 	Route::get('sinifler-muellim/{id}','dersController@indexMuellim');
+	Route::get('show-sinif-muellim/{md}/{id}','dersController@showMuellim');
+
+
+
+
+}

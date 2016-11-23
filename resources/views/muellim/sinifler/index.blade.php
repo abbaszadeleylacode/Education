@@ -39,25 +39,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($sinifler as $sinif)
+					@foreach($classrooms as $class)
 						<tr>
-							<td>{{$sinif->id}}</td>
-							<td>{{$sinif->text}}</td>
+							<td>{{$class->id}}</td>
+							<td>{{$class->text}}</td>
 							<td>
-								<a href="{{url('showsinif',$sinif->id)}}" class="btn btn-xs btn-default">
+								<a href="{{url('showsinif',$class->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
-								</a>
-
-								<a href="{{url('updatesinif',$sinif->id)}}" class="btn btn-xs btn-primary">
-									<i class="fa fa-cog"></i>
-								</a>
-
-								<a href="{{url('deletesinif',$sinif->id)}}" class="btn btn-xs btn-danger">
-									<i class="fa fa-trash"></i>
-								</a>
-
-								<a href="{{url('addsagird',$sinif->id)}}" class="btn btn-xs btn-success">
-									<i class="fa fa-users"></i>
 								</a>
 							</td>
 						</tr>

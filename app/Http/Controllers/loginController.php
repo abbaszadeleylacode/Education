@@ -15,10 +15,10 @@ class loginController extends Controller
         if(isset($_SESSION)){
             $email=$request->email;
             $password=$request->password;
-
             if(muellim::where([['email',$email],['password',$password]])->first()){
                 $muellim=muellim::where([['email',$email],['password',$password]])->first();
                 $_SESSION['muellimTrue']='muellimSistemde';
+                $_SESSION['muellimID']=$muellim->id;
                 return view('muellim.index',compact('muellim'));
             }else{
                 return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
@@ -30,7 +30,8 @@ class loginController extends Controller
 
             if(muellim::where([['email',$email],['password',$password]])->first()){
                 $muellim=muellim::where([['email',$email],['password',$password]])->first();
-                // $_SESSION['muellimTrue']='muellimSistemde';
+                $_SESSION['muellimTrue']='muellimSistemde';
+                $_SESSION['muellimID']=$muellim->id;
                 return view('muellim.index',compact('muellim'));
             }else{
                 return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
@@ -46,8 +47,6 @@ class loginController extends Controller
             session_unset($_SESSION['muellimTrue']);
             session_destroy();
             return redirect('/');
-        }else{
-            echo "Yuru";
         }
     }
 }

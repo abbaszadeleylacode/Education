@@ -35,9 +35,7 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('derscedveli')}}" class="sagirdButton btn">Bütün siniflər</a>
-			<a href="{{url('sinifyarat')}}" class="sagirdButton btn">Sinif yarat</a>
-			<a href="{{url('derscedveli')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('sinifler-muellim',$_SESSION['muellimID'])}}" class="sagirdButton btn">Geri</a>
 			
 			<h1>SİNİF HAQQINDA</h1>
 

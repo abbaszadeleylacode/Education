@@ -37,7 +37,7 @@ Route::get('/register', function () {
 //----------------PANELLER----------------
 Route::get('/admin-panel', function () {
     return view('admin.index');
-});
+}); 	
 //----------------LOGIN CONTROLLER----------------
 Route::post('/checkMuellim','loginController@muellim');
 
@@ -90,9 +90,6 @@ if(isset($_SESSION['muellimTrue'])){
     	return view('muellim.index');
 	});
 
-
-
-
 	//----------------Muellim Panel----------------
 	Route::get('muellim-panel/logout','loginController@logoutMuellim');//logout muellim;
 	//----------------Muellim Panel Sagirdler----------------
@@ -108,9 +105,5 @@ if(isset($_SESSION['muellimTrue'])){
 
 	//----------------Muellim Panel Sinifler(ders cedvelleri)----------------
 	Route::get('sinifler-muellim/{id}','dersController@indexMuellim');
-	Route::get('show-sinif-muellim/{md}/{id}','dersController@showMuellim');
-
-
-
-
+	Route::get('show-sinif-muellim/{id}','dersController@showMuellim');
 }

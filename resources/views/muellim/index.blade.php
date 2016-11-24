@@ -40,7 +40,7 @@
 
 		<div class="dersCedveli col-md-2 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<a href="{{url('sinifler-muellim')}}">{{-- $muellim->id --}}
+				<a href="{{url('sinifler-muellim',$_SESSION['muellimID'])}}">
 					<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli">
 				</a>
 			</div>

@@ -44,7 +44,7 @@
 							<td>{{$class->id}}</td>
 							<td>{{$class->text}}</td>
 							<td>
-								<a href="{{url('showsinif',$class->id)}}" class="btn btn-xs btn-default">
+								<a href="{{url('show-sinif-muellim',$class->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
 							</td>

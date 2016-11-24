@@ -140,12 +140,17 @@ class dersController extends Controller
         $sinifler=muellim_sinif::where('muellim_id',$id)->get();
         $classrooms=array();
         for($i=0;$i<count($sinifler);$i++){
-            //$sinif=sinif::find($)
             $sinifID=$sinifler[$i]->sinif_id;
             $class=sinif::find($sinifID);
             array_push($classrooms, $class);
             
         }
         return view('muellim.sinifler.index',compact('classrooms'));
+    }
+
+    public function showMuellim($id)
+    {
+        $sinif=sinif::find($id);
+        return view('muellim.sinifler.show',compact('sinif'));
     }
 }

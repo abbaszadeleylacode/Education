@@ -106,4 +106,10 @@ if(isset($_SESSION['muellimTrue'])){
 	//----------------Muellim Panel Sinifler(ders cedvelleri)----------------
 	Route::get('sinifler-muellim/{id}','dersController@indexMuellim');
 	Route::get('show-sinif-muellim/{id}','dersController@showMuellim');
+
+	//----------------Muellim Panel Imtahanlar----------------
+	Route::get('imtahanlar-muellim','imtahanController@indexMuellim');
+	Route::get('addexam','imtahanController@imtahanElave');
+	Route::post('save-exam','imtahanController@saveExam');
+	Route::get('delete-exam/{id}','imtahanController@delete');	
 }

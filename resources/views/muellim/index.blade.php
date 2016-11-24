@@ -67,9 +67,11 @@
 		</div>
 
 		<div class="imtahan col-md-3 donenHisseler col-sm-12 col-xs-12">
-			<div class="row">
-				<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar">
-			</div>
+			<a href="{{'imtahanlar-muellim'}}">
+				<div class="row">
+					<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar">
+				</div>
+			</a>
 		</div>
 
 

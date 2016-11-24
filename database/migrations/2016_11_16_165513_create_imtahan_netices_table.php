@@ -16,6 +16,7 @@ class CreateImtahanNeticesTable extends Migration
         Schema::create('imtahan_netices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sagird_id');
+            $table->integer('imtahan_id');
             $table->integer('imtahan_netice');
             $table->timestamps();
         });

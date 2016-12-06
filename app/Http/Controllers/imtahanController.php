@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\imtahan;
 use App\muellim;
 use App\sinif;
+use App\sagird;
+use App\imtahan_netice;
 
 
 class imtahanController extends Controller
@@ -46,5 +48,39 @@ class imtahanController extends Controller
         $imtahan=imtahan::find($id);
         $imtahan->delete();
         return back();
+    }
+
+    public function qiymet($id)
+    {
+        $exam=imtahan::find($id);
+        $sinifID=$exam->sinif_id;
+        $sinifAdi=sinif::where('id',$sinifID)->first()->text;
+        $sagirdler=sagird::where('sinif_id',$sinifAdi)->get();
+
+        return view('muellim.imtahanlar.qiymetlendirme',compact('sagirdler','exam'));
+    }
+
+    public function qiymetPersonal($id,$sd)
+    {
+        $sagird=sagird::find($sd);
+        return view('muellim.imtahanlar.qiymet',compact('sagird','id','sd'));
+    }
+
+    public function qiymetSave(Request $request)
+    {
+        $new=new imtahan_netice;
+        $new->sagird_id=$request->sd;
+        $new->imtahan_id=$request->id;
+        $new->imtahan_netice=$request->qiymet;
+        $new->save();
+        return back();
+    }
+
+
+    // ---------------------Admin Panel Functionlar---------------------
+    public function indexAdmin()
+    {
+        $imtahanlar=imtahan::all();
+        return view('admin.imtahanlar.index',compact('imtahanlar'));
     }
 }

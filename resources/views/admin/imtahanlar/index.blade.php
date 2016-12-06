@@ -39,8 +39,7 @@ use App\sinif;
 		</div>
 		
 		<div class="container">
-			<a href="{{url('addexam')}}" class="sagirdButton btn">Imtahan əlavə et</a>
-			<a href="{{url('muellim-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('admin-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">
@@ -52,7 +51,6 @@ use App\sinif;
 						<td>Sinif</td>
 						<td>İmtahan tarixi</td>
 						<td>Əlavələr</td>
-						<td>Əməllər</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,14 +62,6 @@ use App\sinif;
 							<td>{{sinif::where('id',$imtahan->sinif_id)->first()->text}}</td>
 							<td>{{$imtahan->imtahan_tarixi}}</td>
 							<td>{{$imtahan->melumat}}</td>
-							<td>
-								<a href="{{url('qiymet-exam',$imtahan->id)}}" class="btn btn-xs btn-primary">
-									q
-								</a>
-								<a href="{{url('delete-exam',$imtahan->id)}}" class="btn btn-xs btn-danger">
-									<i class="fa fa-trash"></i>
-								</a>
-							</td>
 						</tr>
 					@endforeach
 				</tbody>

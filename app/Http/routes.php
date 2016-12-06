@@ -82,7 +82,8 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('elaveetMuellim/{id}','dersController@elaveetMuellim');
 	Route::get('cixar/{id}','dersController@cixar');
 	Route::get('cixarMuellim/{sd}/{id}','dersController@cixarMuellim');
-
+	//-----------------Admin Panel Imtahanlar----------------------
+	Route::get('imtahanlar-admin','imtahanController@indexAdmin');
 
 
 if(isset($_SESSION['muellimTrue'])){
@@ -112,4 +113,7 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('addexam','imtahanController@imtahanElave');
 	Route::post('save-exam','imtahanController@saveExam');
 	Route::get('delete-exam/{id}','imtahanController@delete');	
+	Route::get('qiymet-exam/{id}','imtahanController@qiymet');	
+	Route::get('qiymet-sagird-muellim/{id}/{sd}','imtahanController@qiymetPersonal');	
+	Route::post('qiymet-save','imtahanController@qiymetSave');	
 }

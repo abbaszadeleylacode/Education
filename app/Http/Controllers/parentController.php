@@ -52,11 +52,35 @@ class parentController extends Controller
    }
 
 
-   public function axtaris(Request $request)
+    public function axtaris(Request $request)
     {
         $ad=$request->ad;
         $soyad=$request->soyad;
         $valideynler=valideynler::where([['name',$ad],['surname',$soyad]])->get();
         return view('admin.valideyn.tapilan',compact('valideynler'));
     }
+
+
+
+    // -------------------Muellimler ucun olan functionlar----------------------------
+    public function indexMuellim()
+   {
+      $valideynler=valideynler::all();
+      return view('muellim.valideyn.index',compact('valideynler'));
+   }
+
+
+    public function axtarisMuellim(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $valideynler=valideynler::where([['name',$ad],['surname',$soyad]])->get();
+        return view('muellim.valideyn.tapilan',compact('valideynler'));
+    }
+
+    public function showMuellim($id)
+   {
+      $valideyn=valideynler::find($id);
+      return view('muellim.valideyn.show',compact('valideyn'));
+   }
 }

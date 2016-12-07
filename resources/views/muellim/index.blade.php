@@ -56,7 +56,9 @@
 
 		<div class="valideyn col-md-3 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər">
+				<a href="{{url('muellim-parents')}}">
+					<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər">
+				</a>
 			</div>
 		</div>
 

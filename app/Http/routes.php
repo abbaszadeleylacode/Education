@@ -123,4 +123,9 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('qiymet-exam/{id}','imtahanController@qiymet');	
 	Route::get('qiymet-sagird-muellim/{id}/{sd}','imtahanController@qiymetPersonal');	
 	Route::post('qiymet-save','imtahanController@qiymetSave');	
+
+	//-----------------Muellim Panel Valideynler----------------------
+	Route::get('muellim-parents','parentController@indexMuellim');
+	Route::get('showvalideyn-muellim/{id}','parentController@showMuellim');
+	Route::post('axtarisvalideyn-muellim','parentController@axtarisMuellim');
 }

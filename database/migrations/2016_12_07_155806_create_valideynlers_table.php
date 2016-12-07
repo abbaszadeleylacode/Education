@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParentsTable extends Migration
+class CreateValideynlersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +12,11 @@ class CreateParentsTable extends Migration
      */
     public function up()
     {
-
-        Schema::create('parents', function (Blueprint $table) {
+        Schema::create('valideynlers', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
             $table->text('surname');
-            $table->text('e-mail');
+            $table->text('email');
             $table->text('password');
             $table->text('phone');
             $table->text('sagird_id');
@@ -33,6 +31,6 @@ class CreateParentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parents');
+        Schema::drop('valideynlers');
     }
 }

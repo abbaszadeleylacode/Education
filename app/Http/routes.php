@@ -84,6 +84,13 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('cixarMuellim/{sd}/{id}','dersController@cixarMuellim');
 	//-----------------Admin Panel Imtahanlar----------------------
 	Route::get('imtahanlar-admin','imtahanController@indexAdmin');
+	//-----------------Admin Panel Valideynler----------------------
+	Route::get('admin-parents','parentController@indexAdmin');
+	Route::get('delete-valideyn/{id}','parentController@delete');
+	Route::get('addparent','parentController@addValideyn');
+	Route::get('showvalideyn/{id}','parentController@show');
+	Route::post('savevalideyn','parentController@saveValideyn');
+	Route::post('axtarisvalideyn','parentController@axtaris');
 
 
 if(isset($_SESSION['muellimTrue'])){

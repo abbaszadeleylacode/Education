@@ -96,6 +96,10 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::get('meeting-admin','ceremonyController@indexAdmin');
 	Route::get('show-yigincaq-admin/{id}','ceremonyController@showAdmin');
 
+	//-----------------Admin Panel Quizler----------------------
+	Route::get('quiz-admin','quizController@indexAdmin');
+	Route::get('show-quiz-admin/{id}','quizController@showAdmin');
+
 
 if(isset($_SESSION['muellimTrue'])){
 	Route::get('/muellim-panel', function () {
@@ -140,4 +144,12 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('show-yigincaq/{id}','ceremonyController@show');
 	Route::get('update-yigincaq/{id}','ceremonyController@edit');
 	Route::post('save-meeting-update/{id}','ceremonyController@save');
+	//-----------------Muellim Panel Quizler----------------------
+	Route::get('quiz-muellim','quizController@indexMuellim');
+	Route::get('addquiz','quizController@add');
+	Route::post('save-quiz','quizController@store');
+	Route::get('show-quiz/{id}','quizController@show');
+	Route::get('delete-quiz/{id}','quizController@delete');
+	Route::get('edit-quiz/{id}','quizController@edit');
+	Route::post('update-quiz/{id}','quizController@update');
 }

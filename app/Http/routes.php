@@ -128,4 +128,12 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('muellim-parents','parentController@indexMuellim');
 	Route::get('showvalideyn-muellim/{id}','parentController@showMuellim');
 	Route::post('axtarisvalideyn-muellim','parentController@axtarisMuellim');
+	//-----------------Muellim Panel Yigincaqlar----------------------
+	Route::get('meeting-muellim','ceremonyController@indexMuellim');
+	Route::get('addmeeting','ceremonyController@addMeeting');
+	Route::post('save-meeting','ceremonyController@saveMeeting');
+	Route::get('delete-yigincaq/{id}','ceremonyController@delete');
+	Route::get('show-yigincaq/{id}','ceremonyController@show');
+	Route::get('update-yigincaq/{id}','ceremonyController@edit');
+	Route::post('save-meeting-update/{id}','ceremonyController@save');
 }

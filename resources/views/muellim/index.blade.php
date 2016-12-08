@@ -34,7 +34,9 @@
 
 		<div class="meeting col-md-2 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar">
+				<a href="{{url('meeting-muellim')}}">
+					<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar">
+				</a>
 			</div>
 		</div>
 

@@ -10,7 +10,7 @@
 	<script src="{{url('assets/jquery-3.1.1.min.js')}}"></script>
 	
 </head>
-<body style="background-image:url('assets/images/bg.jpg'); background-size:cover">
+<body style="background-image:url('../assets/images/bg.jpg'); background-size:cover">
 <div class="container-fluid">
 	<div class="row">
 		<div class="panel col-md-4 col-sm-10 col-xs-10 col-md-offset-4 col-sm-offset-1 col-xs-offset-1" style="margin-top:40px">

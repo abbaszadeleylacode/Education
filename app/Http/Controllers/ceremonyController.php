@@ -57,4 +57,18 @@ class ceremonyController extends Controller
     	ceremony::find($id)->update($request->all());
     	return back()->with('success','Yığıncaq uğurla yeniləndi');
     }
+
+    // Admin ucun olan functionlar
+    public function indexAdmin()
+    {
+    	$meetings=ceremony::all();
+    	return view('admin.yigincaq.index',compact('meetings'));
+    }
+
+    public function showAdmin($id)
+    {
+    	$meeting=ceremony::find($id);
+    	return view('admin.yigincaq.show',compact('meeting'));
+    }
+
 }

@@ -92,6 +92,10 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::post('savevalideyn','parentController@saveValideyn');
 	Route::post('axtarisvalideyn','parentController@axtaris');
 
+	//-----------------Admin Panel Yigincaqlar----------------------
+	Route::get('meeting-admin','ceremonyController@indexAdmin');
+	Route::get('show-yigincaq-admin/{id}','ceremonyController@showAdmin');
+
 
 if(isset($_SESSION['muellimTrue'])){
 	Route::get('/muellim-panel', function () {

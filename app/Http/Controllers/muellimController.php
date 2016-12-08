@@ -25,6 +25,15 @@ class muellimController extends Controller
 
     public function save(Request $request)
     {
+         $this->validate($request,[
+                'name'=>'required',
+                'surname'=>'required',
+                'email'=>'required',
+                'password'=>'required',
+                'fenn'=>'required',
+                'phone'=>'required',
+
+                ]);
     	$new=new muellim;
 
     	$new->name=$request->name;
@@ -50,6 +59,10 @@ class muellimController extends Controller
 
      public function axtaris(Request $request)
     {
+        $this->validate($request,[
+                'name'=>'required',
+                'surname'=>'required',
+                ]);
         $ad=$request->ad;
         $soyad=$request->soyad;
         $muellimler=muellim::where([['name',$ad],['surname',$soyad]])->get();

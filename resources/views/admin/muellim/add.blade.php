@@ -27,18 +27,36 @@
 
 					<input class="hidden" type="text" value="" name="id">
 					<input type="text" placeholder="Adınız" name="name" class="form-control">
+					@if($errors->has('name'))
+			         <p style="color:red;text-align: left"><b>Ad yazın.</b></p>
+			        @endif
 					<br>
 					<input type="text" placeholder="Soyadınız" name="surname" class="form-control">
+					@if($errors->has('surname'))
+			         <p style="color:red;text-align: left"><b>Soyad yazın.</b></p>
+			        @endif
 					<br>
 					<input type="text" placeholder="Fənn" name="fenn" class="form-control">
+					@if($errors->has('fenn'))
+			         <p style="color:red;text-align: left"><b>Fənn yazın.</b></p>
+			        @endif
 					<br>
 					<input type="file" placeholder="Şəkiliniz" name="photo" class="form-control">
 					<br>
 					<input type="email" placeholder="E-poçt ünvanınız" name="email" class="form-control">
+					@if($errors->has('email'))
+			         <p style="color:red;text-align: left"><b>E-poçt yazın.</b></p>
+			        @endif
 					<br>
 					<input type="password" placeholder="Şifrəniz" name="password" class="form-control">
+					@if($errors->has('password'))
+			         <p style="color:red;text-align: left"><b>Şifrə yazın.</b></p>
+			        @endif
 					<br>
 					<input type="number" placeholder="Telefon nömrəniz" name="phone" class="form-control">
+					@if($errors->has('phone'))
+			         <p style="color:red;text-align: left"><b>Telefon nömrəsi yazın.</b></p>
+			        @endif
 					<br>
 					<input type="submit" value="Əlavə et" class="form-control submit">
 

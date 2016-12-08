@@ -44,9 +44,16 @@
 				<button type="submit" class="axtar pull-right">Axtar</button>
 
 				<input type="text" name="soyad" class="form-control pull-right" placeholder="Soyad" style="width: 250px; display: inline-block; margin-top: 30px">
+				@if($errors->has('name'))
+			         <span style="color:red;text-align: left"><b>Ad yazın.</b></span>
+			    @endif
 
 
 				<input type="text" name="ad" class="form-control " placeholder="Ad" style="width: 250px; display: inline-block; margin-top: 30px;margin-right: 10px">
+				
+			    @if($errors->has('surname'))
+			         <span style="color:red;text-align: left"><b>Soyad yazın.</b></span>
+			    @endif
 			
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 

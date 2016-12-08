@@ -62,6 +62,7 @@ class dersController extends Controller
 
     public function add($id)
     {
+        
         $sinif=sinif::find($id);
         $sagirdler=sagird::where('sinif_id','=',$sinif->text)->get();
         return view('admin.sinifler.sagirdler',compact('sagirdler','sinif'));

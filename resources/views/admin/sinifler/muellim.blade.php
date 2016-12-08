@@ -42,8 +42,15 @@
 
 				<input type="text" name="surname" placeholder="Soyad" class="form-control pull-right col-md-3" style="width: 250px; display: inline-block; margin-top: 30px">
 
+				@if($errors->has('name'))
+			         <span style="color:red;text-align: left"><b>Ad yazın.</b></span>
+			    @endif
+
 				<input type="text" name="name" placeholder="Ad" class="form-control pull-right col-md-3" style="width: 250px; display: inline-block; margin-top: 30px; margin-right:10px">
 				
+				@if($errors->has('name'))
+			         <span style="color:red;text-align: left"><b>Ad yazın.</b></span>
+			    @endif
 
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 			</form>

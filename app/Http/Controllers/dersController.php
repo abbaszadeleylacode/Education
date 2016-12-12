@@ -31,6 +31,9 @@ class dersController extends Controller
 
     public function save(Request $request)
     {
+        $this->validate($request,[
+                'text'=>'required',
+                ]);
     	$new = new sinif;
     	$new->text=$request->text;
     	$new->ders_cedveli= "/".$request->bir."/".$request->iki."/".$request->uc."/".$request->dord."/".$request->bes."/".$request->alti;
@@ -54,9 +57,9 @@ class dersController extends Controller
         return view('admin.sinifler.update',compact('sinif'));
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request)
     {
-        sinif::find($id)->update($request->all());
+        sinif::find($request->id)->update($request->all());
         return back()->with('success','Dəyişdirildi!');
     }
 

@@ -34,12 +34,9 @@ Route::get('/register', function () {
 });
 
 
-//----------------PANELLER----------------
-Route::get('/admin-panel', function () {
-    return view('admin.index');
-}); 	
 //----------------LOGIN CONTROLLER----------------
 Route::post('/checkMuellim','loginController@muellim');
+Route::post('/checkadmin','loginController@admin');
 
 
 
@@ -52,6 +49,10 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 
 
 //----------------Admin Panel----------------
+if (isset($_SESSION['adminTrue'])) {
+	Route::get('/admin-panel', function () {
+	    return view('admin.index');
+	}); 	
 	//----------------Admin Panel Sagirdler----------------
 	Route::get('/sagirdsiyahisi', 'sagirdController@index');
 	Route::get('/telebsiyahisi', 'sagirdController@teleb');
@@ -76,6 +77,7 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	Route::post('yaratsinif','dersController@save');
 	Route::get('deletesinif/{id}','dersController@delete');
 	Route::get('updatesinif/{id}','dersController@yenile');
+	Route::post('update-sinif','dersController@update');
 	Route::get('addsagird/{id}','dersController@add');
 	Route::get('elaveet/{id}','dersController@elaveet');
 	Route::get('sinifMuellimleri/{id}','dersController@addMuellim');
@@ -99,6 +101,15 @@ Route::post('/axtaristeleb', 'registerController@axtaris');
 	//-----------------Admin Panel Quizler----------------------
 	Route::get('quiz-admin','quizController@indexAdmin');
 	Route::get('show-quiz-admin/{id}','quizController@showAdmin');
+
+	//-----------------Admin Panel Elaqe----------------------
+	Route::get('elaqe-admin','elaqeController@indexAdmin');
+	Route::get('delete-mail-admin/{id}','elaqeController@delete');
+	Route::post('send-mail','elaqeController@sendAdmin');
+	Route::get('sent-admin','elaqeController@sentAdmin');
+	Route::get('show-mail/{id}','elaqeController@showMail');
+	Route::get('show-mail-qebul/{id}','elaqeController@showMailQebul');
+}
 
 
 if(isset($_SESSION['muellimTrue'])){
@@ -152,4 +163,11 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('delete-quiz/{id}','quizController@delete');
 	Route::get('edit-quiz/{id}','quizController@edit');
 	Route::post('update-quiz/{id}','quizController@update');
+	//-----------------Muellim Panel Elaqe----------------------
+	Route::get('elaqe-muellim','elaqeController@indexMuellim');
+	Route::get('delete-mail-muellim/{id}','elaqeController@delete');
+	Route::post('send-muellim','elaqeController@sendMuellim');
+	Route::get('sent-muellim','elaqeController@sentMuellim');
+	Route::get('show-mail-muellim/{id}','elaqeController@showMailMuellim');
+	Route::get('show-mail-qebul-muellim/{id}','elaqeController@showMailQebulMuellim');
 }

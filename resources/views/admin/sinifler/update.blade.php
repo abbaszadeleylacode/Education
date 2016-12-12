@@ -22,12 +22,12 @@
 				<?php
 					$list=explode("/",$sinif->ders_cedveli);
 				?>
-				<form action="{{url('yenilesinif',$sinif->id)}}" enctype="multipart/form-data" method="patch">
+				<form action="{{url('update-sinif')}}" enctype="multipart/form-data" method="post">
 					 @if ($message = Session::get('success'))
 				        <p>{{$message}}</p>
 				     @endif
 
-					<input class="hidden" type="text" value="" name="id">
+					<input class="hidden" type="text" value="{{$sinif->id}}" name="id">
 					<input type="text" value="{{$sinif->text}}" name="text" class="form-control">
 					<br>
 					<p>Dərs cədvəli</p>

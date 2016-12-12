@@ -27,6 +27,9 @@
 
 					<input class="hidden" type="text" value="" name="id">
 					<input type="text" placeholder="Ad" name="text" class="form-control">
+					@if($errors->has('text'))
+			         <p style="color:red;text-align: left"><b>Ad yazın.</b></p>
+			        @endif
 					<br>
 					<p>Dərs cədvəli</p>
 					<textarea name=bir id="" cols="30" rows="10" placeholder="Bazar ertəsi"></textarea>

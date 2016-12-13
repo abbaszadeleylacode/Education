@@ -75,8 +75,8 @@ use App\sagird;
 		
 		<div class="container">
 			<a class="sagirdButton btn my">Mesaj yaz</a>
-			<a href="{{url('elaqe-admin')}}" class="sagirdButton btn">Qəbul edilmiş</a>
-			<a href="{{url('admin-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('elaqe-sagird')}}" class="sagirdButton btn">Qəbul edilmiş</a>
+			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">
@@ -137,7 +137,7 @@ use App\sagird;
 						<i class="fa fa-times pull-right"></i>
 					</div>
 					<div class="content">
-						<form action="{{url('send-mail')}}" method="post">
+						<form action="{{url('send-sagird')}}" method="post">
 							<input type="text" placeholder="Kimə" class="input col-md-12" name="reciever">
 							<select name="kind" id="" class="col-md-12 input">
 								<option value="1">Müəllim</option>

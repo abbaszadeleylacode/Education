@@ -167,4 +167,82 @@ class elaqeController extends Controller
     	$mail=elaqe::find($id);
     	return view('muellim.elaqe.qebul',compact('mail'));
     }
+
+
+    //Sagirdler ucun olan functionlar
+     public function indexSagird()
+    {
+        $mails=elaqe::where([['reciever_id',$_SESSION['sagirdID']],['reciever_type','s']])->orderBy('id','desc')->get();
+        return view('sagird.elaqe.index',compact('mails'));
+    }
+
+
+     public function sendSagird(Request $request)
+    {
+        if ($request->kind=='1') {
+            $muellim=muellim::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['sagirdID'];
+            $new->reciever_id=$muellim;
+            $new->sender_type='s';
+            $new->reciever_type='m';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+                
+        }
+            
+        if ($request->kind=='2') {
+            $sagird=sagird::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['sagirdID'];
+            $new->reciever_id=$sagird;
+            $new->sender_type='s';
+            $new->reciever_type='s';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
+        if ($request->kind=='3') {
+            $admin=admin::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['sagirdID'];
+            $new->reciever_id=$admin;
+            $new->sender_type='s';
+            $new->reciever_type='a';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
+
+    }
+
+
+    public function sentSagird()
+    {
+        $mails=elaqe::where([['sender_id',$_SESSION['sagirdID']],['sender_type','s']])->orderBy('id','desc')->get();
+        return view('sagird.elaqe.sent',compact('mails'));
+    }
+
+
+    public function showMailSagird($id)
+    {
+        $mail=elaqe::find($id);
+        return view('sagird.elaqe.show',compact('mail'));
+    }
+
+    public function showMailQebulSagird($id)
+    {
+        $mail=elaqe::find($id);
+        return view('sagird.elaqe.qebul',compact('mail'));
+    }
+
 }

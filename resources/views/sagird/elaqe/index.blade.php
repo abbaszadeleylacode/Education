@@ -75,8 +75,8 @@ use App\sagird;
 		
 		<div class="container">
 			<a class="sagirdButton btn my">Mesaj yaz</a>
-			<a href="{{url('sent-admin')}}" class="sagirdButton btn">Göndərilən</a>
-			<a href="{{url('admin-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('sent-sagird')}}" class="sagirdButton btn">Göndərilən</a>
+			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
 
 
 
@@ -120,11 +120,11 @@ use App\sagird;
 							<td>{{substr($mail->content,0,50).'...'}}</td>
 							<td>{{$mail->created_at}}</td>
 							<td>
-								<a href="{{url('show-mail-qebul',$mail->id)}}" class="btn btn-xs btn-default">
+								<a href="{{url('show-mail-qebul-sagird',$mail->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
 
-								<a href="{{url('delete-mail-admin',$mail->id)}}" class="btn btn-xs btn-danger">
+								<a href="{{url('delete-mail-sagird',$mail->id)}}" class="btn btn-xs btn-danger">
 									<i class="fa fa-trash"></i>
 								</a>
 							</td>
@@ -141,7 +141,7 @@ use App\sagird;
 						<i class="fa fa-times pull-right"></i>
 					</div>
 					<div class="content">
-						<form action="{{url('send-mail')}}" method="post">
+						<form action="{{url('send-sagird')}}" method="post">
 							<input type="text" placeholder="Kimə" class="input col-md-12" name="reciever">
 							<select name="kind" id="" class="col-md-12 input">
 								<option value="1">Müəllim</option>

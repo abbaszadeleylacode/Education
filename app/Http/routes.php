@@ -200,3 +200,10 @@ if(isset($_SESSION['muellimTrue'])){
 		Route::get('showmuellim-sagird/{id}','muellimController@showSagird');
 		//-----------------Sagird Panel Valideynler----------------------
 		Route::get('sagird-parents','parentController@indexSagird');
+		//-----------------Admin Panel Elaqe----------------------
+		Route::get('elaqe-sagird','elaqeController@indexSagird');
+		Route::get('delete-mail-sagird/{id}','elaqeController@delete');
+		Route::post('send-sagird','elaqeController@sendSagird');
+		Route::get('sent-sagird','elaqeController@sentSagird');
+		Route::get('show-mail-sagird/{id}','elaqeController@showMailSagird');
+		Route::get('show-mail-qebul-sagird/{id}','elaqeController@showMailQebulSagird');

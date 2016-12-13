@@ -68,7 +68,7 @@
 
 		<div class="elaqe col-md-6 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
-				<a href="{{url('elaqe-admin')}}">
+				<a href="{{url('elaqe-sagird')}}">
 					<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə">
 				</a>
 			</div>

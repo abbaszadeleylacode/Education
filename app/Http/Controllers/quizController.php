@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\quiz;
 use App\sinif;
+use App\sagird;
 class quizController extends Controller
 {
 	// Muellimler ucun olan functionlar
@@ -101,5 +102,20 @@ class quizController extends Controller
     {
         $quiz=quiz::find($id);
         return view('admin.quiz.show',compact('quiz'));
+    }
+
+    // Sagirdler ucun olan functionlar
+     public function indexSagird()
+    {
+        $sagird=sagird::find($_SESSION['sagirdID'])->sinif_id;
+        $quizzies=quiz::where('sinif_id',$sagird)->get();
+        return view('sagird.quiz.index',compact('quizzies'));
+    }
+
+
+    public function showSagird($id)
+    {
+        $quiz=quiz::find($id);
+        return view('sagird.quiz.show',compact('quiz'));
     }
 }

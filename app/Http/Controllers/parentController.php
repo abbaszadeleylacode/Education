@@ -83,4 +83,11 @@ class parentController extends Controller
       $valideyn=valideynler::find($id);
       return view('muellim.valideyn.show',compact('valideyn'));
    }
+
+   //Sagirdler ucun olan functionlar
+    public function indexSagird()
+   {
+      $valideyn=valideynler::where('sagird_id',$_SESSION['sagirdID'])->first();
+      return view('sagird.valideyn.index',compact('valideyn'));
+   }
 }

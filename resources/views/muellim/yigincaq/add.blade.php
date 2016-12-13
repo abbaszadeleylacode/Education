@@ -33,7 +33,7 @@
 					<br>
 					<select name="sinif_id" id="" class="form-control">
 						@foreach($sinifler as $sinif)
-							<option value="{{$sinif->id}}">{{$sinif->text}}</option>
+							<option value="{{$sinif->text}}">{{$sinif->text}}</option>
 						@endforeach
 					</select>
 					<br>

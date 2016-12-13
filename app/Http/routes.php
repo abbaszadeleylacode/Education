@@ -37,15 +37,13 @@ Route::get('/register', function () {
 //----------------LOGIN CONTROLLER----------------
 Route::post('/checkMuellim','loginController@muellim');
 Route::post('/checkadmin','loginController@admin');
+Route::post('/checksagird','loginController@sagird');
 
 
 
 //----------------REGISTER CONTROLLER----------------
 Route::post('/registercontrol','registerController@new');
-Route::get('/accept/{id}','registerController@accept');
-Route::get('/reject/{id}','registerController@reject');
-Route::get('/showteleb/{id}','registerController@show');
-Route::post('/axtaristeleb', 'registerController@axtaris');
+
 
 
 //----------------Admin Panel----------------
@@ -53,6 +51,11 @@ if (isset($_SESSION['adminTrue'])) {
 	Route::get('/admin-panel', function () {
 	    return view('admin.index');
 	}); 	
+
+	Route::get('/accept/{id}','registerController@accept');
+	Route::get('/reject/{id}','registerController@reject');
+	Route::get('/showteleb/{id}','registerController@show');
+	Route::post('/axtaristeleb', 'registerController@axtaris');
 	//----------------Admin Panel Sagirdler----------------
 	Route::get('/sagirdsiyahisi', 'sagirdController@index');
 	Route::get('/telebsiyahisi', 'sagirdController@teleb');
@@ -171,3 +174,29 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('show-mail-muellim/{id}','elaqeController@showMailMuellim');
 	Route::get('show-mail-qebul-muellim/{id}','elaqeController@showMailQebulMuellim');
 }
+
+
+
+	//----------------Sagird Panel----------------
+	Route::get('/sagird-panel', function () {
+	    return view('sagird.index');
+	}); 	
+		//----------------Sagirdler(Sagird PANELDE)----------------
+		Route::get('/sagirdsiyahisi-sagird', 'sagirdController@indexSagird');
+		Route::get('/showsagird-sagird/{id}', 'sagirdController@showSagird');
+		Route::post('/axtaris-sagird', 'sagirdController@axtarisSagird');
+		//-----------------Sagird Panel Quizler----------------------
+		Route::get('quiz-sagird','quizController@indexSagird');
+		Route::get('show-quiz-sagird/{id}','quizController@showSagird');
+		//-----------------Sagird Panel Yigincaqlar----------------------
+		Route::get('meeting-sagird','ceremonyController@indexSagird');
+		Route::get('show-yigincaq-sagird/{id}','ceremonyController@showSagird');
+		//----------------Sagird Panel Ders Cedveli----------------
+		Route::get('derscedveli-sagird','dersController@indexSagird');
+		Route::get('showsinif-sagird/{id}','dersController@showSagird');
+		//----------------Sagird Panel Muellimler----------------
+		Route::get('muellimsiyahisi-sagird','muellimController@indexSagird');
+		Route::post('axtarismuellim-sagird','muellimController@axtarisSagird');
+		Route::get('showmuellim-sagird/{id}','muellimController@showSagird');
+		//-----------------Sagird Panel Valideynler----------------------
+		Route::get('sagird-parents','parentController@indexSagird');

@@ -78,4 +78,25 @@ class sagirdController extends Controller
         $sagird->save();
         return back();
     }
+
+    // ------------------Sagirdler ucun olan functionlar----------------------------
+    public function indexSagird()
+    {
+        $sagirdler=sagird::all();
+        return view('sagird.sagirdler',compact('sagirdler'));
+    }
+
+    public function axtarisSagird(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $sagirdler=sagird::where([['name',$ad],['surname',$soyad]])->get();
+        return view('sagird.sagird.tapilan',compact('sagirdler'));
+    }
+
+    public function showSagird($id)
+    {
+        $sagirdler=sagird::find($id);
+        return view('sagird.sagird.show',compact('sagirdler'));
+    }
 }

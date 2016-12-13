@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\ceremony;
 use App\sinif;
-
+use App\sagird;
 class ceremonyController extends Controller
 {
 	// Muellimler ucun olan functionlar
@@ -71,4 +71,18 @@ class ceremonyController extends Controller
     	return view('admin.yigincaq.show',compact('meeting'));
     }
 
+
+    //Sagirdler ucun olan functionlar
+    public function indexSagird()
+    {
+        $sagird=sagird::find($_SESSION['sagirdID'])->sinif_id;
+        $meetings=ceremony::where('sinif_id',$sagird)->get();
+        return view('sagird.yigincaq.index',compact('meetings'));
+    }
+
+    public function showSagird($id)
+    {
+        $meeting=ceremony::find($id);
+        return view('sagird.yigincaq.show',compact('meeting'));
+    }
 }

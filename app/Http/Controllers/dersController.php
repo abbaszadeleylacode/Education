@@ -157,4 +157,19 @@ class dersController extends Controller
         $sinif=sinif::find($id);
         return view('muellim.sinifler.show',compact('sinif'));
     }
+
+
+    // Sagirdler ucun olan functionlar
+    public function indexSagird()
+    {
+        $sagird=sagird::find($_SESSION['sagirdID'])->sinif_id;
+        $sinif=sinif::where('text',$sagird)->first();
+        return view('sagird.sinifler.index',compact('sinif'));
+    }
+
+    public function showSagird($id)
+    {
+        $sinif=sinif::find($id);
+        return view('sagird.sinifler.show',compact('sinif'));
+    }
 }

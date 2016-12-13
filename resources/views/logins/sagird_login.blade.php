@@ -19,11 +19,11 @@
 			</div>
 
 			<div class="panel-body">
-				<form action="" enctype="multipart/form-data" method="post">
+				<form action="{{url('checksagird')}}" enctype="multipart/form-data" method="post">
 					<input class="hidden" type="text" value="" name="id">
-					<input type="text" class="form-control" placeholder="E-poçt ünvanınız">
+					<input type="text" class="form-control" placeholder="E-poçt ünvanınız" name="email">
 					<br>
-					<input type="password" class="form-control" placeholder="Şifrəniz">
+					<input type="password" class="form-control" placeholder="Şifrəniz" name="password">
 					<br>
 					
 					<a href="{{url('register')}}">Qeydiyyatdan keç</a>

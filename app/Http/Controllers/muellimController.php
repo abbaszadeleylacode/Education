@@ -105,4 +105,25 @@ class muellimController extends Controller
         $muellim=muellim::find($id);
         return view('muellim.muellim.show',compact('muellim'));
     }
+
+    //Sagirdler ucun olan functionlar
+    public function indexSagird()
+    {
+        $muellimler=muellim::all();
+        return view('sagird.muellim.index',compact('muellimler'));
+    }
+
+     public function axtarisSagird(Request $request)
+    {
+        $ad=$request->ad;
+        $soyad=$request->soyad;
+        $muellimler=muellim::where([['name',$ad],['surname',$soyad]])->get();
+        return view('sagird.muellim.tapilan',compact('muellimler'));
+    }
+
+    public function showSagird($id)
+    {
+        $muellim=muellim::find($id);
+        return view('sagird.muellim.show',compact('muellim'));
+    }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\muellim;
 use App\admin;
 use App\sagird;
+use App\valideynler;
 class loginController extends Controller
 {
 
@@ -109,6 +110,35 @@ class loginController extends Controller
                 $_SESSION['sagirdTrue']='sagirdSistemde';
                 $_SESSION['sagirdID']=$sagird->id;
                 return view('sagird.index',compact('sagird'));
+            }else{
+                return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
+            }
+        }
+    }
+
+    public function valideyn(Request $request)
+    {
+        if(isset($_SESSION)){
+            $email=$request->email;
+            $password=$request->password;
+            if(valideynler::where([['email',$email],['password',$password]])->first()){
+                $valideyn=valideynler::where([['email',$email],['password',$password]])->first();
+                $_SESSION['valideynTrue']='valideynSistemde';
+                $_SESSION['valideynID']=$valideyn->id;
+                return view('valideyn.index',compact('valideyn'));
+            }else{
+                return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
+            }
+        }else{
+            session_start();
+            $email=$request->email;
+            $password=$request->password;
+
+            if(valideynler::where([['email',$email],['password',$password]])->first()){
+                $valideyn=valideynler::where([['email',$email],['password',$password]])->first();
+                $_SESSION['valideynTrue']='valideynSistemde';
+                $_SESSION['valideynID']=$valideyn->id;
+                return view('valideyn.index',compact('valideyn'));
             }else{
                 return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
             }

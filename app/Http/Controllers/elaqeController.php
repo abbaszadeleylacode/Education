@@ -9,6 +9,7 @@ use App\Elaqe;
 use App\admin;
 use App\sagird;
 use App\muellim;
+use App\valideynler;
 class elaqeController extends Controller
 {
 
@@ -71,6 +72,20 @@ class elaqeController extends Controller
 	    	return back();
     		
     	}
+        if ($request->kind=='4') {
+            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['adminId'];
+            $new->reciever_id=$valideyn;
+            $new->sender_type='a';
+            $new->reciever_type='v';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
 
     }
 
@@ -145,6 +160,20 @@ class elaqeController extends Controller
 	    	return back();
     		
     	}
+        if ($request->kind=='4') {
+            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['muellimID'];
+            $new->reciever_id=$valideyn;
+            $new->sender_type='m';
+            $new->reciever_type='v';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
 
     }
 
@@ -222,6 +251,20 @@ class elaqeController extends Controller
             return back();
             
         }
+        if ($request->kind=='4') {
+            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['sagirdID'];
+            $new->reciever_id=$valideyn;
+            $new->sender_type='s';
+            $new->reciever_type='v';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
 
     }
 
@@ -243,6 +286,102 @@ class elaqeController extends Controller
     {
         $mail=elaqe::find($id);
         return view('sagird.elaqe.qebul',compact('mail'));
+    }
+
+
+
+    //Valideynler ucun olan functionlar
+
+
+
+
+    public function indexValideyn()
+    {
+        $mails=elaqe::where([['reciever_id',$_SESSION['valideynID']],['reciever_type','v']])->orderBy('id','desc')->get();
+        return view('valideyn.elaqe.index',compact('mails'));
+    }
+
+
+     public function sendValideyn(Request $request)
+    {
+        if ($request->kind=='1') {
+            $muellim=muellim::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['valideynID'];
+            $new->reciever_id=$muellim;
+            $new->sender_type='v';
+            $new->reciever_type='m';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+                
+        }
+            
+        if ($request->kind=='2') {
+            $sagird=sagird::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['valideynID'];
+            $new->reciever_id=$sagird;
+            $new->sender_type='v';
+            $new->reciever_type='s';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
+        if ($request->kind=='3') {
+            $admin=admin::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['valideynID'];
+            $new->reciever_id=$admin;
+            $new->sender_type='v';
+            $new->reciever_type='a';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
+        if ($request->kind=='4') {
+            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+            $new= new elaqe;
+            $new->sender_id=$_SESSION['valideynID'];
+            $new->reciever_id=$valideyn;
+            $new->sender_type='v';
+            $new->reciever_type='v';
+            $new->title=$request->title;
+            $new->content=$request->content;
+
+            $new->save();
+            return back();
+            
+        }
+
+    }
+
+
+    public function sentValideyn()
+    {
+        $mails=elaqe::where([['sender_id',$_SESSION['valideynID']],['sender_type','v']])->orderBy('id','desc')->get();
+        return view('valideyn.elaqe.sent',compact('mails'));
+    }
+
+
+    public function showMailValideyn($id)
+    {
+        $mail=elaqe::find($id);
+        return view('valideyn.elaqe.show',compact('mail'));
+    }
+
+    public function showMailQebulValideyn($id)
+    {
+        $mail=elaqe::find($id);
+        return view('valideyn.elaqe.qebul',compact('mail'));
     }
 
 }

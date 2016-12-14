@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Yığıncaqlar</title>
+@php
+use App\muellim;
+use App\sinif;
+@endphp
+	<title>İmtahanlar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -35,36 +39,34 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('valideyn-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">
 				<thead>
 					<tr>
 						<td>ID</td>
-						<td>Ad</td>
-						<td>Məzmun</td>
-						<td>Sinif</td>
-						<td>Yığıncaq tarixi</td>
+						<td>Müəllim</td>
+						<td>Fənn</td>
+						<td>İmtahan tarixi</td>
+						<td>Əlavələr</td>
 						<td>Əməllər</td>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($meetings as $meeting)
-					<tr>
-						<td>{{$meeting->id}}</td>
-						<td>{{$meeting->name}}</td>
-						<td>{{$meeting->about}}</td>
-						<td>
-							{{$meeting->sinif_id}}
-						</td>
-						<td>{{$meeting->time}}</td>
-						<td>
-							<a href="{{url('show-yigincaq-sagird',$meeting->id)}}" class="btn btn-default btn-xs">
-								<i class="fa fa-eye"></i>
-							</a>
-						</td>
-					</tr>
+					@foreach($imtahanlar as $imtahan)
+						<tr>
+							<td>{{$imtahan->id}}</td>
+							<td>{{muellim::where('id',$imtahan->muellim_id)->first()->name.' '.muellim::where('id',$imtahan->muellim_id)->first()->surname}}</td>
+							<td>{{muellim::find($imtahan->muellim_id)->fenn}}</td>
+							<td>{{$imtahan->imtahan_tarixi}}</td>
+							<td>{{$imtahan->melumat}}</td>
+							<td>
+								<a href="{{url('imtahan-netice-valideyn',$imtahan->id)}}" class="btn btn-default btn-xs">
+									<i class="fa fa-eye"></i>
+								</a>
+							</td>
+						</tr>
 					@endforeach
 				</tbody>
 			</table>

@@ -76,8 +76,8 @@ use App\valideynler;
 		
 		<div class="container">
 			<a class="sagirdButton btn my">Mesaj yaz</a>
-			<a href="{{url('sent-sagird')}}" class="sagirdButton btn">Göndərilən</a>
-			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('sent-valideyn')}}" class="sagirdButton btn">Göndərilən</a>
+			<a href="{{url('valideyn-panel')}}" class="sagirdButton btn">Geri</a>
 
 
 
@@ -128,11 +128,11 @@ use App\valideynler;
 							<td>{{substr($mail->content,0,50).'...'}}</td>
 							<td>{{$mail->created_at}}</td>
 							<td>
-								<a href="{{url('show-mail-qebul-sagird',$mail->id)}}" class="btn btn-xs btn-default">
+								<a href="{{url('show-mail-qebul-valideyn',$mail->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
 
-								<a href="{{url('delete-mail-sagird',$mail->id)}}" class="btn btn-xs btn-danger">
+								<a href="{{url('delete-mail-valideyn',$mail->id)}}" class="btn btn-xs btn-danger">
 									<i class="fa fa-trash"></i>
 								</a>
 							</td>
@@ -149,7 +149,7 @@ use App\valideynler;
 						<i class="fa fa-times pull-right"></i>
 					</div>
 					<div class="content">
-						<form action="{{url('send-sagird')}}" method="post">
+						<form action="{{url('send-valideyn')}}" method="post">
 							<input type="text" placeholder="Kimə" class="input col-md-12" name="reciever">
 							<select name="kind" id="" class="col-md-12 input">
 								<option value="1">Müəllim</option>

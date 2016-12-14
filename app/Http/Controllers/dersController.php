@@ -10,6 +10,7 @@ use App\sinif;
 use App\sagird;
 use App\muellim;
 use App\muellim_sinif;
+use App\valideynler;
 class dersController extends Controller
 {
     public function index()
@@ -171,5 +172,15 @@ class dersController extends Controller
     {
         $sinif=sinif::find($id);
         return view('sagird.sinifler.show',compact('sinif'));
+    }
+
+    //Valideynler ucun olan functionlar
+
+    public function indexValideyn()
+    {
+        $sagirdID=valideynler::find($_SESSION['valideynID'])->sagird_id;
+        $sinifID=sagird::find($sagirdID)->sinif_id;
+        $sinif=sinif::where('text',$sinifID)->first();
+        return view('valideyn.sinifler.index',compact('sinif'));
     }
 }

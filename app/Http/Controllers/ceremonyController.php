@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\ceremony;
 use App\sinif;
 use App\sagird;
+use App\valideynler;
 class ceremonyController extends Controller
 {
 	// Muellimler ucun olan functionlar
@@ -81,6 +82,21 @@ class ceremonyController extends Controller
     }
 
     public function showSagird($id)
+    {
+        $meeting=ceremony::find($id);
+        return view('sagird.yigincaq.show',compact('meeting'));
+    }
+
+    //Valideynler ucun olan functionlar
+    public function indexValideyn()
+    {
+        $sagirdID=valideynler::find($_SESSION['valideynID'])->sagird_id;
+        $sinif=sagird::find($sagirdID)->sinif_id;
+        $meetings=ceremony::where('sinif_id',$sinif)->get();
+        return view('valideyn.yigincaq.index',compact('meetings'));
+    }
+
+    public function showValideyn($id)
     {
         $meeting=ceremony::find($id);
         return view('sagird.yigincaq.show',compact('meeting'));

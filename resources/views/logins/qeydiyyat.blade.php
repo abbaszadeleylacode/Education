@@ -32,7 +32,7 @@
 					<br>
 					<input type="text" placeholder="Ata adı" name="ata_adi" class="form-control">
 					<br>
-					<input type="number" placeholder="Yaşınız" name="age" class="form-control">
+					<input type="date" placeholder="Yaşınız" name="age" class="form-control">
 					<br>
 					<select name="sinif_id" id="" value="Sinif" class="form-control">
 						<option value="1">1</option>

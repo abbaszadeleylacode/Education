@@ -5,6 +5,7 @@
 use App\admin;
 use App\muellim;
 use App\sagird;
+use App\valideynler;
 @endphp
 	<title>Əlaqə</title>
 	<meta charset="utf-8">
@@ -115,6 +116,13 @@ use App\sagird;
 									@endphp
 									{{$sagird->name.' '.$sagird->surname}}
 								@endif
+
+								@if($mail->sender_type=='v')
+									@php
+									$valideyn=valideynler::where('id',$mail->sender_id)->first();
+									@endphp
+									{{$valideyn->name.' '.$valideyn->surname}}
+								@endif
 							</td>
 							<td>{{$mail->title}}</td>
 							<td>{{substr($mail->content,0,50).'...'}}</td>
@@ -147,6 +155,7 @@ use App\sagird;
 								<option value="1">Müəllim</option>
 								<option value="2">Şagird</option>
 								<option value="3">Admin</option>
+								<option value="4">Valideyn</option>
 							</select>
 							<input type="text" placeholder="Başlıq" class="input col-md-12" name="title">
 							<textarea name="content" id="" cols="30" rows="6" placeholder="Məzmun..." class="input col-md-12"></textarea>

@@ -76,16 +76,14 @@ use App\valideynler;
 		
 		<div class="container">
 			<a class="sagirdButton btn my">Mesaj yaz</a>
-			<a href="{{url('sent-sagird')}}" class="sagirdButton btn">Göndərilən</a>
-			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
-
-
+			<a href="{{url('elaqe-valideyn')}}" class="sagirdButton btn">Qəbul edilmiş</a>
+			<a href="{{url('valideyn-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">
 				<thead>
 					<tr>
-						<td>Göndərən</td>
+						<td>Göndərilən</td>
 						<td>Başlıq</td>
 						<td>Məzmun</td>
 						<td>Göndərilmə tarixi</td>
@@ -96,28 +94,28 @@ use App\valideynler;
 					@foreach($mails as $mail)
 						<tr>
 							<td>
-								@if($mail->sender_type=='a')
+								@if($mail->reciever_type=='a')
 									@php
-									$admin=admin::where('id',$mail->sender_id)->first();
+									$admin=admin::where('id',$mail->reciever_id)->first();
 									@endphp
 									{{$admin->name.' '.$admin->surname}}
 								@endif
 
-								@if($mail->sender_type=='m')
+								@if($mail->reciever_type=='m')
 									@php
-									$muellim=muellim::where('id',$mail->sender_id)->first();
+									$muellim=muellim::where('id',$mail->reciever_id)->first();
 									@endphp
 									{{$muellim->name.' '.$muellim->surname}}
 								@endif
 
-								@if($mail->sender_type=='s')
+								@if($mail->reciever_type=='s')
 									@php
-									$sagird=sagird::where('id',$mail->sender_id)->first();
+									$sagird=sagird::where('id',$mail->reciever_id)->first();
 									@endphp
 									{{$sagird->name.' '.$sagird->surname}}
 								@endif
 
-								@if($mail->sender_type=='v')
+								@if($mail->reciever_type=='v')
 									@php
 									$valideyn=valideynler::where('id',$mail->sender_id)->first();
 									@endphp
@@ -128,11 +126,11 @@ use App\valideynler;
 							<td>{{substr($mail->content,0,50).'...'}}</td>
 							<td>{{$mail->created_at}}</td>
 							<td>
-								<a href="{{url('show-mail-qebul-sagird',$mail->id)}}" class="btn btn-xs btn-default">
+								<a href="{{url('show-mail-valideyn',$mail->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
 
-								<a href="{{url('delete-mail-sagird',$mail->id)}}" class="btn btn-xs btn-danger">
+								<a href="{{url('delete-mail-valideyn',$mail->id)}}" class="btn btn-xs btn-danger">
 									<i class="fa fa-trash"></i>
 								</a>
 							</td>
@@ -140,8 +138,6 @@ use App\valideynler;
 					@endforeach
 				</tbody>				
 			</table>
-
-			
 			<div class="mesajYaz col-md-5 ">
 				<div class="row">
 					<div class="header">
@@ -149,7 +145,7 @@ use App\valideynler;
 						<i class="fa fa-times pull-right"></i>
 					</div>
 					<div class="content">
-						<form action="{{url('send-sagird')}}" method="post">
+						<form action="{{url('send-valideyn')}}" method="post">
 							<input type="text" placeholder="Kimə" class="input col-md-12" name="reciever">
 							<select name="kind" id="" class="col-md-12 input">
 								<option value="1">Müəllim</option>

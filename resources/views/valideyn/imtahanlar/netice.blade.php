@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Yığıncaqlar</title>
+@php
+use App\muellim;
+use App\sinif;
+@endphp
+	<title>İmtahanlar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -12,14 +16,18 @@
 		.sagirdButton{
 			margin-top: 30px;
 		}
-		strong{
-			font-size: 17px;
+		img{
+			height: 40px;
 		}
-		.profile{
-			height: 300px;
-			border-radius: 100%;
-			margin-top: -50px;
+		.axtar{
+			margin-top: 30px;
+			padding:5px;
+			border:2px solid #0AAAE7;
+			border-radius: 2px;
+			margin-left: 5px;
+			background: none;
 		}
+		
 	</style>
 </head>
 <body>
@@ -28,23 +36,19 @@
 
 
 		<div class="logo col-md-12">
-			<img src="{{url('assets/images/logo.png')}}">
+			<img src="{{url('assets/images/logo.png')}}" alt="">
 		</div>
 		
 		<div class="container">
-			<a href="{{url('meeting-muellim')}}" class="sagirdButton btn">Geri</a>
-			
-			<h1>YIĞINCAQ HAQQINDA</h1>
-			<strong>Nömrə: {{$meeting->id}}</strong>
-			<br>
-			<strong>Ad: {{$meeting->name}}</strong>
-			<br>
-			<strong>Məzmun: {{$meeting->about}}</strong>
-			<br>
-			<strong>Sinif: {{$meeting->sinif_id}}</strong>
-			<br>
-			<strong>Yığıcaq tarixi: {{$meeting->time}}</strong>
-			<br>
+			<a href="{{url('imtahanlar-valideyn')}}" class="sagirdButton btn">Geri</a>
+			<h1>NƏTİCƏNİZ</h1>			
+			<h2>
+				@if(@$netice->imtahan_netice==null)
+					{{'Nəticə açıqlanmayıb.'}}
+					@else
+					{{$netice->imtahan_netice}}
+				@endif
+			</h2>
 		</div>
 	</div>
 </div>

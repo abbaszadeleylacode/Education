@@ -32,7 +32,7 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('meeting-muellim')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('meeting-valideyn')}}" class="sagirdButton btn">Geri</a>
 			
 			<h1>YIĞINCAQ HAQQINDA</h1>
 			<strong>Nömrə: {{$meeting->id}}</strong>

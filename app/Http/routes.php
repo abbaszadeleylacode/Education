@@ -38,6 +38,7 @@ Route::get('/register', function () {
 Route::post('/checkMuellim','loginController@muellim');
 Route::post('/checkadmin','loginController@admin');
 Route::post('/checksagird','loginController@sagird');
+Route::post('/checkvalideyn','loginController@valideyn');
 
 
 
@@ -178,6 +179,7 @@ if(isset($_SESSION['muellimTrue'])){
 
 
 	//----------------Sagird Panel----------------
+if(isset($_SESSION['sagirdTrue'])){
 	Route::get('/sagird-panel', function () {
 	    return view('sagird.index');
 	}); 	
@@ -200,7 +202,7 @@ if(isset($_SESSION['muellimTrue'])){
 		Route::get('showmuellim-sagird/{id}','muellimController@showSagird');
 		//-----------------Sagird Panel Valideynler----------------------
 		Route::get('sagird-parents','parentController@indexSagird');
-		//-----------------Admin Panel Elaqe----------------------
+		//-----------------Sagird Panel Elaqe----------------------
 		Route::get('elaqe-sagird','elaqeController@indexSagird');
 		Route::get('delete-mail-sagird/{id}','elaqeController@delete');
 		Route::post('send-sagird','elaqeController@sendSagird');
@@ -208,6 +210,31 @@ if(isset($_SESSION['muellimTrue'])){
 		Route::get('show-mail-sagird/{id}','elaqeController@showMailSagird');
 		Route::get('show-mail-qebul-sagird/{id}','elaqeController@showMailQebulSagird');
 
-		//-----------------Admin Panel Imtahanlar----------------------
+		//-----------------Sagird Panel Imtahanlar----------------------
 		Route::get('imtahanlar-sagird','imtahanController@indexSagird');
 		Route::get('imtahan-netice-sagird/{id}','imtahanController@neticeSagird');
+}
+
+// Valideyn panel
+if(isset($_SESSION['valideynTrue'])){
+	Route::get('/valideyn-panel',function(){
+		return view('valideyn.index');
+	});
+	//-----------------Valideyn Panel Imtahanlar----------------------
+	Route::get('/imtahanlar-valideyn','imtahanController@indexValideyn');
+	Route::get('/imtahan-netice-valideyn/{id}','imtahanController@neticeValideyn');
+
+	//-----------------Valideyn Panel Yigincaqlar----------------------
+	Route::get('meeting-valideyn','ceremonyController@indexValideyn');
+	Route::get('show-yigincaq-valideyn/{id}','ceremonyController@showValideyn');
+
+	//-----------------Valideyn Panel Sinif----------------------
+	Route::get('/sinif-valideyn','dersController@indexValideyn');
+	//-----------------Valideyn Panel Elaqe----------------------
+	Route::get('elaqe-valideyn','elaqeController@indexValideyn');
+	Route::get('delete-mail-valideyn/{id}','elaqeController@delete');
+	Route::post('send-valideyn','elaqeController@sendValideyn');
+	Route::get('sent-valideyn','elaqeController@sentValideyn');
+	Route::get('show-mail-valideyn/{id}','elaqeController@showMailValideyn');
+	Route::get('show-mail-qebul-valideyn/{id}','elaqeController@showMailQebulValideyn');
+}

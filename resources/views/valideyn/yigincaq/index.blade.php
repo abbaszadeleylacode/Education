@@ -35,7 +35,7 @@
 		</div>
 		
 		<div class="container">
-			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('valideyn-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">
@@ -60,7 +60,7 @@
 						</td>
 						<td>{{$meeting->time}}</td>
 						<td>
-							<a href="{{url('show-yigincaq-sagird',$meeting->id)}}" class="btn btn-default btn-xs">
+							<a href="{{url('show-yigincaq-valideyn',$meeting->id)}}" class="btn btn-default btn-xs">
 								<i class="fa fa-eye"></i>
 							</a>
 						</td>

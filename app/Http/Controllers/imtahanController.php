@@ -11,6 +11,7 @@ use App\sinif;
 use App\sagird;
 use App\imtahan_netice;
 use App\muellim_sinif;
+use App\valideynler;
 
 
 class imtahanController extends Controller
@@ -98,6 +99,24 @@ class imtahanController extends Controller
         $imtahan=imtahan::find($id)->id;
         $netice=imtahan_netice::where([['imtahan_id',$imtahan],['sagird_id',$_SESSION['sagirdID']]])->first();
         return view('sagird.imtahanlar.netice',compact('netice'));
+
+    }
+
+
+    //Valideynler ucun olan functionlar
+    public function indexValideyn()
+    {
+        $sagird=valideynler::find($_SESSION['valideynID'])->sagird_id;
+        $sinif=sagird::find($sagird);
+        $imtahanlar=imtahan::where('sinif_id',$sinif->sinif_id)->get();
+        return view('valideyn.imtahanlar.index',compact('imtahanlar'));
+    }
+
+    public function neticeValideyn($id)
+    {
+        $imtahan=imtahan::find($id)->id;
+        $netice=imtahan_netice::where([['imtahan_id',$imtahan],['sagird_id',$_SESSION['sagirdID']]])->first();
+        return view('valideyn.imtahanlar.netice',compact('netice'));
 
     }
 }

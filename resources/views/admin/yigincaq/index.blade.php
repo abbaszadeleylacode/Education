@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-@php
-use App\sinif;
-@endphp
 	<title>Yığıncaqlar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +56,7 @@ use App\sinif;
 						<td>{{$meeting->name}}</td>
 						<td>{{$meeting->about}}</td>
 						<td>
-							{{@sinif::find($meeting->sinif_id)->text}}
+							{{$meeting->sinif_id}}
 						</td>
 						<td>{{$meeting->time}}</td>
 						<td>

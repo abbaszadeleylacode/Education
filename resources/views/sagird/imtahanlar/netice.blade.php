@@ -1,6 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>İmtahan qiymətləndirməsi</title>
+@php
+use App\muellim;
+use App\sinif;
+@endphp
+	<title>İmtahanlar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{url('assets/vendor/bootstrap/css/bootstrap.css')}}">
@@ -22,6 +27,7 @@
 			margin-left: 5px;
 			background: none;
 		}
+		
 	</style>
 </head>
 <body>
@@ -34,35 +40,15 @@
 		</div>
 		
 		<div class="container">
-			
-			{{-- Table========================== --}}
-				<a href="{{url('muellim-panel')}}" class="sagirdButton btn">Geri</a>	
-				<table class="bluetable table table-striped">
-					<thead>
-						<tr>
-							<td>ID</td>
-							<td>Ad</td>
-							<td>Soyad</td>
-							<td>Ata adı</td>
-							<td>Əməllər</td>						
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($sagirdler as $sagird)
-							<tr>
-								<td>{{$sagird->id}}</td>
-								<td>{{$sagird->name}}</td>
-								<td>{{$sagird->surname}}</td>
-								<td>{{$sagird->ata_adi}}</td>
-								<td>
-									<a href="{{url('qiymet-sagird-muellim'.'/'.$exam->id.'/'.$sagird->id)}}" class="btn btn-xs btn-success">
-										q
-									</a>
-								</td>
-							</tr>
-						@endforeach
-					</tbody>
-				</table>
+			<a href="{{url('imtahanlar-sagird')}}" class="sagirdButton btn">Geri</a>
+			<h1>NƏTİCƏNİZ</h1>			
+			<h2>
+				@if(@$netice->imtahan_netice==null)
+					{{'Nəticəniz açıqlanmayıb.'}}
+					@else
+					{{$netice->imtahan_netice}}
+				@endif
+			</h2>
 		</div>
 	</div>
 </div>

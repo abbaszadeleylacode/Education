@@ -207,3 +207,7 @@ if(isset($_SESSION['muellimTrue'])){
 		Route::get('sent-sagird','elaqeController@sentSagird');
 		Route::get('show-mail-sagird/{id}','elaqeController@showMailSagird');
 		Route::get('show-mail-qebul-sagird/{id}','elaqeController@showMailQebulSagird');
+
+		//-----------------Admin Panel Imtahanlar----------------------
+		Route::get('imtahanlar-sagird','imtahanController@indexSagird');
+		Route::get('imtahan-netice-sagird/{id}','imtahanController@neticeSagird');

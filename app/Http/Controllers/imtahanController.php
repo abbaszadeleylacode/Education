@@ -10,6 +10,7 @@ use App\muellim;
 use App\sinif;
 use App\sagird;
 use App\imtahan_netice;
+use App\muellim_sinif;
 
 
 class imtahanController extends Controller
@@ -22,13 +23,14 @@ class imtahanController extends Controller
 
     public function imtahanElave()
     {
-    	return view('muellim.imtahanlar.add');
+        $sinifler=muellim_sinif::where('muellim_id',$_SESSION['muellimID'])->get();
+    	return view('muellim.imtahanlar.add',compact('sinifler'));
     }
 
     public function saveExam(Request $request)
     {
     	$sinif=sinif::where('text',$request->sinif_id)->first();
-    	$sinifId=$sinif->id;
+    	$sinifId=$sinif->text;
 
     	$imtahan=new imtahan();
 
@@ -54,8 +56,7 @@ class imtahanController extends Controller
     {
         $exam=imtahan::find($id);
         $sinifID=$exam->sinif_id;
-        $sinifAdi=sinif::where('id',$sinifID)->first()->text;
-        $sagirdler=sagird::where('sinif_id',$sinifAdi)->get();
+        $sagirdler=sagird::where('sinif_id',$sinifID)->get();
 
         return view('muellim.imtahanlar.qiymetlendirme',compact('sagirdler','exam'));
     }
@@ -82,5 +83,21 @@ class imtahanController extends Controller
     {
         $imtahanlar=imtahan::all();
         return view('admin.imtahanlar.index',compact('imtahanlar'));
+    }
+
+    //Sagirdler ucun olan functionlar
+    public function indexSagird()
+    {
+        $sinif=sagird::find($_SESSION['sagirdID'])->sinif_id;
+        $imtahanlar=imtahan::where('sinif_id',$sinif)->get();
+        return view('sagird.imtahanlar.index',compact('imtahanlar'));
+    }
+
+    public function neticeSagird($id)
+    {
+        $imtahan=imtahan::find($id)->id;
+        $netice=imtahan_netice::where([['imtahan_id',$imtahan],['sagird_id',$_SESSION['sagirdID']]])->first();
+        return view('sagird.imtahanlar.netice',compact('netice'));
+
     }
 }

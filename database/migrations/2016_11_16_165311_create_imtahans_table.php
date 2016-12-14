@@ -16,7 +16,7 @@ class CreateImtahansTable extends Migration
         Schema::create('imtahans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('muellim_id');
-            $table->integer('sinif_id');
+            $table->text('sinif_id');
             $table->text('melumat');
             $table->text('imtahan_tarixi');
             $table->timestamps();

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	@php
+	use App\sinif;
+	@endphp
 	<title>İmtahanlar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,8 +29,15 @@
 				     @endif
 
 					<input class="hidden" type="text" value="" name="id">
-
-					<input type="text" name="sinif_id" placeholder="Sinif" class="form-control">
+					<select name="sinif_id" id="" class="form-control">
+						@foreach($sinifler as $sinif)
+							@php
+							$sinifAdi=sinif::find($sinif->sinif_id);
+							@endphp
+							<option value="{{$sinifAdi->text}}">{{$sinifAdi->text}}</option>
+							
+						@endforeach
+					</select>
 					<br>
 					<textarea name="melumat" id="" cols="30" rows="10" placeholder="Əlavələriniz..." class="form-control"></textarea>
 					<br>

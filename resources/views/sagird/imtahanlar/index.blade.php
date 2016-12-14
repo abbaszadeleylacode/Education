@@ -39,7 +39,7 @@ use App\sinif;
 		</div>
 		
 		<div class="container">
-			<a href="{{url('admin-panel')}}" class="sagirdButton btn">Geri</a>
+			<a href="{{url('sagird-panel')}}" class="sagirdButton btn">Geri</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">
@@ -48,9 +48,9 @@ use App\sinif;
 						<td>ID</td>
 						<td>Müəllim</td>
 						<td>Fənn</td>
-						<td>Sinif</td>
 						<td>İmtahan tarixi</td>
 						<td>Əlavələr</td>
+						<td>Əməllər</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,10 +58,14 @@ use App\sinif;
 						<tr>
 							<td>{{$imtahan->id}}</td>
 							<td>{{muellim::where('id',$imtahan->muellim_id)->first()->name.' '.muellim::where('id',$imtahan->muellim_id)->first()->surname}}</td>
-							<td>{{muellim::where('id',$imtahan->muellim_id)->first()->fenn}}</td>
-							<td>{{sinif::where('id',$imtahan->sinif_id)->first()->text}}</td>
+							<td>{{muellim::find($imtahan->muellim_id)->fenn}}</td>
 							<td>{{$imtahan->imtahan_tarixi}}</td>
 							<td>{{$imtahan->melumat}}</td>
+							<td>
+								<a href="{{url('imtahan-netice-sagird',$imtahan->id)}}" class="btn btn-default btn-xs">
+									<i class="fa fa-eye"></i>
+								</a>
+							</td>
 						</tr>
 					@endforeach
 				</tbody>

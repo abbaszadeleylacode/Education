@@ -60,8 +60,8 @@ use App\sinif;
 						<tr>
 							<td>{{$imtahan->id}}</td>
 							<td>{{muellim::where('id',$imtahan->muellim_id)->first()->name.' '.muellim::where('id',$imtahan->muellim_id)->first()->surname}}</td>
-							<td>{{muellim::where('id',$imtahan->muellim_id)->first()->fenn}}</td>
-							<td>{{sinif::where('id',$imtahan->sinif_id)->first()->text}}</td>
+							<td>{{muellim::find($imtahan->muellim_id)->fenn}}</td>
+							<td>{{$imtahan->sinif_id}}</td>
 							<td>{{$imtahan->imtahan_tarixi}}</td>
 							<td>{{$imtahan->melumat}}</td>
 							<td>

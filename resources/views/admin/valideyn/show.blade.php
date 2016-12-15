@@ -33,6 +33,7 @@ use App\sagird;
 
 		<div class="logo col-md-12">
 			<img src="{{url('assets/images/logo.png')}}">
+			<a href="{{url('admin-panel/logout')}}">Çıxış et</a>
 		</div>
 		
 		<div class="container">

@@ -15,7 +15,8 @@
 	
 	<div class="row">
 		<div class="logo col-md-12">
-			<img src="{{url('assets/images/logo.png')}}" alt="">
+			<img src="{{url('assets/images/logo.png')}}">	
+			<a href="{{url('admin-panel/logout')}}">Çıxış et</a>
 		</div>
 
 		<div class="sagird col-md-3 donenHisseler col-sm-12 col-xs-12">

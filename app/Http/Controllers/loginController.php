@@ -84,6 +84,16 @@ class loginController extends Controller
     }
 
 
+    public function logoutAdmin()
+    {
+        if(isset($_SESSION['adminTrue'])){
+            session_unset($_SESSION['adminTrue']);
+            session_destroy();
+            return redirect('/');
+        }
+    }
+
+
 
 
 
@@ -113,6 +123,16 @@ class loginController extends Controller
             }else{
                 return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
             }
+        }
+    }
+
+
+    public function logoutSagird()
+    {
+        if(isset($_SESSION['sagirdTrue'])){
+            session_unset($_SESSION['sagirdTrue']);
+            session_destroy();
+            return redirect('/');
         }
     }
 

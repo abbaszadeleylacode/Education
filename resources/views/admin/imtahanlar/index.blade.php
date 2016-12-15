@@ -36,6 +36,7 @@ use App\sinif;
 
 		<div class="logo col-md-12">
 			<img src="{{url('assets/images/logo.png')}}" alt="">
+			<a href="{{url('admin-panel/logout')}}">Çıxış et</a>
 		</div>
 		
 		<div class="container">

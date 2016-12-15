@@ -52,6 +52,7 @@ if (isset($_SESSION['adminTrue'])) {
 	Route::get('/admin-panel', function () {
 	    return view('admin.index');
 	}); 	
+	Route::get('admin-panel/logout','loginController@logoutAdmin');
 
 	Route::get('/accept/{id}','registerController@accept');
 	Route::get('/reject/{id}','registerController@reject');
@@ -183,6 +184,7 @@ if(isset($_SESSION['sagirdTrue'])){
 	Route::get('/sagird-panel', function () {
 	    return view('sagird.index');
 	}); 	
+	Route::get('sagird-panel/logout','loginController@logoutSagird');
 		//----------------Sagirdler(Sagird PANELDE)----------------
 		Route::get('/sagirdsiyahisi-sagird', 'sagirdController@indexSagird');
 		Route::get('/showsagird-sagird/{id}', 'sagirdController@showSagird');

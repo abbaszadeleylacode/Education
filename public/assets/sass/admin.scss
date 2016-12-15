@@ -5,8 +5,13 @@
 .logo{
 	background:#C2CCD5;
 	text-align:center;
+	z-index:6;
 	img{
 		height: 80px;
+	}
+	a{
+		float:right;
+		margin-top: 2%;
 	}
 }
 .sagird{

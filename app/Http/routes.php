@@ -54,6 +54,9 @@ if (isset($_SESSION['adminTrue'])) {
 	}); 	
 	Route::get('admin-panel/logout','loginController@logoutAdmin');
 
+	Route::get('settings-admin','settingsController@indexAdmin');
+	Route::post('update-admin','settingsController@updateAdmin');
+
 	Route::get('/accept/{id}','registerController@accept');
 	Route::get('/reject/{id}','registerController@reject');
 	Route::get('/showteleb/{id}','registerController@show');
@@ -121,7 +124,8 @@ if(isset($_SESSION['muellimTrue'])){
 	Route::get('/muellim-panel', function () {
     	return view('muellim.index');
 	});
-
+	Route::get('settings-muellim','settingsController@indexMuellim');
+	Route::post('update-muellim','settingsController@updateMuellim');
 	//----------------Muellim Panel----------------
 	Route::get('muellim-panel/logout','loginController@logoutMuellim');//logout muellim;
 	//----------------Muellim Panel Sagirdler----------------
@@ -185,6 +189,9 @@ if(isset($_SESSION['sagirdTrue'])){
 	    return view('sagird.index');
 	}); 	
 	Route::get('sagird-panel/logout','loginController@logoutSagird');
+
+	Route::get('settings-sagird','settingsController@indexSagird');
+	Route::post('update-sagird','settingsController@updateSagird');
 		//----------------Sagirdler(Sagird PANELDE)----------------
 		Route::get('/sagirdsiyahisi-sagird', 'sagirdController@indexSagird');
 		Route::get('/showsagird-sagird/{id}', 'sagirdController@showSagird');
@@ -223,6 +230,9 @@ if(isset($_SESSION['valideynTrue'])){
 		return view('valideyn.index');
 	});
 	Route::get('valideyn-panel/logout','loginController@logoutValideyn');
+
+	Route::get('settings-valideyn','settingsController@indexValideyn');
+	Route::post('update-valideyn','settingsController@updateValideyn');
 	//-----------------Valideyn Panel Imtahanlar----------------------
 	Route::get('/imtahanlar-valideyn','imtahanController@indexValideyn');
 	Route::get('/imtahan-netice-valideyn/{id}','imtahanController@neticeValideyn');

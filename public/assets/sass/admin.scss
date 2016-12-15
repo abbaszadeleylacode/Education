@@ -1,3 +1,7 @@
+
+body{
+	font-family: Tahoma;
+}
 .donenHisseler{
 	background:black;
 
@@ -13,6 +17,18 @@
 		float:right;
 		margin-top: 2%;
 	}
+}
+.settings{
+	font-size:22px;
+	background:#0EABE6;
+	color:white;
+	position: absolute;
+	z-index:6;
+	text-align:center;
+	padding:10px;
+	transform:translateX(-27px) translateY(15px);
+	cursor:pointer;
+	transition:all .4s ease;
 }
 .sagird{
 	text-align:center;
@@ -120,4 +136,38 @@
 .bluetable tr:nth-child(even){
 	background:#0AAAE7;
 	color:white;
+}
+
+// settings
+.info{
+	background:#324C57;
+	margin-top:50px;
+	h2{
+		color:white;
+	}
+	img{
+		height: 120px;
+		width: 120px;
+		margin:auto;
+		background:white;
+		border-radius:100%;
+		padding:1px;
+	}
+	p{
+		color:white;
+		font-size: 20px;
+		font-family: Tahoma;
+	}
+	i{
+		color:white;
+	}
+}
+.update{
+	background:#126786;
+	margin-top:30px;
+	margin-bottom:30px;
+	.btn-success{
+		margin-bottom:20px;
+		float:right;
+	}
 }

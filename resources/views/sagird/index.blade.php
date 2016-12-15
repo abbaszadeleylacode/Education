@@ -19,6 +19,25 @@
 			<a href="{{url('sagird-panel/logout')}}">Çıxış et</a>
 		</div>
 
+		<a href="{{url('settings-sagird')}}">
+			<div class="settings">
+				<i class="fa fa-cog"></i>
+			</div>
+		</a>
+		<script>
+			$(document).ready(function($) {
+				$('.settings')
+				.on('mouseover', function(event) {
+					$(this).css('transform', 'translateX(0px) translateY(15px)',2000);
+				});
+
+				$('.settings')
+				.on('mouseleave', function(event) {
+					$(this).css('transform', 'translateX(-27px) translateY(15px)',2000);
+				});
+			});
+		</script>
+
 		<div class="sagird col-md-3 donenHisseler col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('sagirdsiyahisi-sagird')}}">

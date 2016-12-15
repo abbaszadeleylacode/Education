@@ -90,7 +90,24 @@ use App\sagird;
 			<img src="{{url('assets/images/logo.png')}}" alt="">
 			<a href="{{url('valideyn-panel/logout')}}">Çıxış et</a>
 		</div>
-		
+		<a href="{{url('settings-valideyn')}}">
+			<div class="settings">
+				<i class="fa fa-cog"></i>
+			</div>
+		</a>
+		<script>
+			$(document).ready(function($) {
+				$('.settings')
+				.on('mouseover', function(event) {
+					$(this).css('transform', 'translateX(0px) translateY(15px)',2000);
+				});
+
+				$('.settings')
+				.on('mouseleave', function(event) {
+					$(this).css('transform', 'translateX(-27px) translateY(15px)',2000);
+				});
+			});
+		</script>
 		<div class="container">
 			<a href="{{url('imtahanlar-valideyn')}}" class="btn sagirdButton">İmtahanlar</a>
 			<a href="{{url('meeting-valideyn')}}" class="btn sagirdButton">Yığıncaqlar</a>

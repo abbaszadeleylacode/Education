@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="imtahan col-md-3 donenHisseler col-sm-12 col-xs-12">
-			<a href="{{'imtahanlar-muellim'}}">
+			<a href="{{url('imtahanlar-muellim')}}">
 				<div class="row">
 					<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar">
 				</div>
@@ -90,35 +90,51 @@
 		{{-- Mobile ucun olan hisseler --}}
 		<ul class="col-md-10 col-md-offset-1">
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər" class="img img-responsive">
+				<a href="{{url('sagird(muellim)')}}">
+					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər" class="img img-responsive">
+				<a href="{{url('muellim(muellim)')}}">
+					<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər" class="img img-responsive">
+				<a href="{{url('muellim-parents')}}">
+					<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar" class="img img-responsive">
+				<a href="{{url('meeting-muellim')}}">
+					<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/quizzes.jpg')}}" title="Quizlər" class="img img-responsive">
+				<a href="{{url('quiz-muellim')}}">
+					<img src="{{url('assets/images/admin/quizzes.jpg')}}" title="Quizlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli" class="img img-responsive">
+				<a href="{{url('sinifler-muellim',$_SESSION['muellimID'])}}">
+					<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar" class="img img-responsive">
+				<a href="{{url('imtahanlar-muellim')}}">
+					<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə" class="img img-responsive">
+				<a href="{{url('elaqe-muellim')}}">
+					<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə" class="img img-responsive">
+				</a>
 			</li>
 		</ul>
 	</div>

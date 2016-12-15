@@ -222,6 +222,7 @@ if(isset($_SESSION['valideynTrue'])){
 	Route::get('/valideyn-panel',function(){
 		return view('valideyn.index');
 	});
+	Route::get('valideyn-panel/logout','loginController@logoutValideyn');
 	//-----------------Valideyn Panel Imtahanlar----------------------
 	Route::get('/imtahanlar-valideyn','imtahanController@indexValideyn');
 	Route::get('/imtahan-netice-valideyn/{id}','imtahanController@neticeValideyn');

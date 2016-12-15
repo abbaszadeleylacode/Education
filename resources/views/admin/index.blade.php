@@ -90,35 +90,51 @@
 		{{-- Mobile ucun olan hisseler --}}
 		<ul class="col-md-10 col-md-offset-1">
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər" class="img img-responsive">
+				<a href="{{url('sagirdsiyahisi')}}">
+					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər" class="img img-responsive">
+				<a href="{{url('muellimsiyahisi')}}">
+					<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər" class="img img-responsive">
+				<a href="{{url('admin-parents')}}">
+					<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar" class="img img-responsive">
+				<a href="{{url('meeting-admin')}}">
+					<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/quizzes.jpg')}}" title="Quizlər" class="img img-responsive">
+				<a href="{{url('quiz-admin')}}">
+					<img src="{{url('assets/images/admin/quizzes.jpg')}}" title="Quizlər" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli" class="img img-responsive">
+				<a href="{{url('derscedveli')}}">
+					<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar" class="img img-responsive">
+				<a href="{{url('imtahanlar-admin')}}">
+					<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar" class="img img-responsive">
+				</a>
 			</li>
 
 			<li class="col-md-10 col-md-offset-1">
-				<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə" class="img img-responsive">
+				<a href="{{url('elaqe-admin')}}">
+					<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə" class="img img-responsive">
+				</a>
 			</li>
 		</ul>
 	</div>

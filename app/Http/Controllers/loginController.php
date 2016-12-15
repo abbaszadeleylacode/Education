@@ -164,4 +164,12 @@ class loginController extends Controller
             }
         }
     }
+    public function logoutValideyn()
+    {
+        if(isset($_SESSION['valideynTrue'])){
+            session_unset($_SESSION['valideynTrue']);
+            session_destroy();
+            return redirect('/');
+        }
+    }
 }

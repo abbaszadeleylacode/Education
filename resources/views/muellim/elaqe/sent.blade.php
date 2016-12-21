@@ -127,11 +127,11 @@ use App\valideynler;
 							<td>{{substr($mail->content,0,50).'...'}}</td>
 							<td>{{$mail->created_at}}</td>
 							<td>
-								<a href="{{url('show-mail',$mail->id)}}" class="btn btn-xs btn-default">
+								<a href="{{url('show-mail-muellim',$mail->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
 
-								<a href="{{url('delete-mail-admin',$mail->id)}}" class="btn btn-xs btn-danger">
+								<a href="{{url('delete-mail-muellim',$mail->id)}}" class="btn btn-xs btn-danger">
 									<i class="fa fa-trash"></i>
 								</a>
 							</td>

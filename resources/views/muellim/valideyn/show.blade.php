@@ -20,8 +20,8 @@ use App\sagird;
 		}
 		.profile{
 			height: 300px;
-			border-radius: 100%;
 			width: 300px;
+			border-radius: 100%;
 			margin-top: -50px;
 		}
 	</style>

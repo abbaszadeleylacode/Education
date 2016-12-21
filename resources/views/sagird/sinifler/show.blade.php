@@ -17,6 +17,7 @@
 		}
 		.profile{
 			height: 300px;
+			width: 300px;
 			border-radius: 100%;
 			margin-top: -50px;
 		}

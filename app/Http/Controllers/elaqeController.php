@@ -30,60 +30,79 @@ class elaqeController extends Controller
     public function sendAdmin(Request $request)
     {
     	if ($request->kind=='1') {
-    		$muellim=muellim::where('email',$request->reciever)->first()->id;
-    		$new= new elaqe;
-	    	$new->sender_id=$_SESSION['adminId'];
-	    	$new->reciever_id=$muellim;
-	    	$new->sender_type='a';
-	    	$new->reciever_type='m';
-	    	$new->title=$request->title;
-	    	$new->content=$request->content;
+            if(!is_null(muellim::where('email',$request->reciever)->first())){
+               $muellim=muellim::where('email',$request->reciever)->first()->id;
+               $new= new elaqe;
+               $new->sender_id=$_SESSION['adminId'];
+               $new->reciever_id=$muellim;
+               $new->sender_type='a';
+               $new->reciever_type='m';
+               $new->title=$request->title;
+               $new->content=$request->content;
 
-	    	$new->save();
-	    	return back();
-	    		
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-admin'>Geri dön</a>";
+            }	    		
     	}
     		
     	if ($request->kind=='2') {
-    		$sagird=sagird::where('email',$request->reciever)->first()->id;
-    		$new= new elaqe;
-	    	$new->sender_id=$_SESSION['adminId'];
-	    	$new->reciever_id=$sagird;
-	    	$new->sender_type='a';
-	    	$new->reciever_type='s';
-	    	$new->title=$request->title;
-	    	$new->content=$request->content;
+            if(!is_null(sagird::where('email',$request->reciever)->first())){
+                $sagird=sagird::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['adminId'];
+                $new->reciever_id=$sagird;
+                $new->sender_type='a';
+                $new->reciever_type='s';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-	    	$new->save();
-	    	return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-admin'>Geri dön</a>";
+            }   	    	
     		
     	}
     	if ($request->kind=='3') {
-    		$admin=admin::where('email',$request->reciever)->first()->id;
-    		$new= new elaqe;
-	    	$new->sender_id=$_SESSION['adminId'];
-	    	$new->reciever_id=$admin;
-	    	$new->sender_type='a';
-	    	$new->reciever_type='a';
-	    	$new->title=$request->title;
-	    	$new->content=$request->content;
+            if(!is_null(admin::where('email',$request->reciever)->first())){
+                $admin=admin::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['adminId'];
+                $new->reciever_id=$admin;
+                $new->sender_type='a';
+                $new->reciever_type='a';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-	    	$new->save();
-	    	return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-admin'>Geri dön</a>";
+            }     		
     		
     	}
         if ($request->kind=='4') {
-            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['adminId'];
-            $new->reciever_id=$valideyn;
-            $new->sender_type='a';
-            $new->reciever_type='v';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(valideynler::where('email',$request->reciever)->first())){
+                $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['adminId'];
+                $new->reciever_id=$valideyn;
+                $new->sender_type='a';
+                $new->reciever_type='v';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-admin'>Geri dön</a>";
+            }             
             
         }
 
@@ -118,60 +137,81 @@ class elaqeController extends Controller
      public function sendMuellim(Request $request)
     {
     	if ($request->kind=='1') {
-    		$muellim=muellim::where('email',$request->reciever)->first()->id;
-    		$new= new elaqe;
-	    	$new->sender_id=$_SESSION['muellimID'];
-	    	$new->reciever_id=$muellim;
-	    	$new->sender_type='m';
-	    	$new->reciever_type='m';
-	    	$new->title=$request->title;
-	    	$new->content=$request->content;
+            if(!is_null(muellim::where('email',$request->reciever)->first())){
+                $muellim=muellim::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['muellimID'];
+                $new->reciever_id=$muellim;
+                $new->sender_type='m';
+                $new->reciever_type='m';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-	    	$new->save();
-	    	return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-muellim'>Geri dön</a>";
+            }    		
 	    		
     	}
     		
     	if ($request->kind=='2') {
-    		$sagird=sagird::where('email',$request->reciever)->first()->id;
-    		$new= new elaqe;
-	    	$new->sender_id=$_SESSION['muellimID'];
-	    	$new->reciever_id=$sagird;
-	    	$new->sender_type='m';
-	    	$new->reciever_type='s';
-	    	$new->title=$request->title;
-	    	$new->content=$request->content;
+            if(!is_null(sagird::where('email',$request->reciever)->first())){
+                $sagird=sagird::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['muellimID'];
+                $new->reciever_id=$sagird;
+                $new->sender_type='m';
+                $new->reciever_type='s';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-	    	$new->save();
-	    	return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-muellim'>Geri dön</a>";
+            }     		
     		
     	}
     	if ($request->kind=='3') {
-    		$admin=admin::where('email',$request->reciever)->first()->id;
-    		$new= new elaqe;
-	    	$new->sender_id=$_SESSION['muellimID'];
-	    	$new->reciever_id=$admin;
-	    	$new->sender_type='m';
-	    	$new->reciever_type='a';
-	    	$new->title=$request->title;
-	    	$new->content=$request->content;
+            if(!is_null(admin::where('email',$request->reciever)->first())){
+                $admin=admin::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['muellimID'];
+                $new->reciever_id=$admin;
+                $new->sender_type='m';
+                $new->reciever_type='a';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-	    	$new->save();
-	    	return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-muellim'>Geri dön</a>";
+            }  
+    		
     		
     	}
         if ($request->kind=='4') {
-            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['muellimID'];
-            $new->reciever_id=$valideyn;
-            $new->sender_type='m';
-            $new->reciever_type='v';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(valideynler::where('email',$request->reciever)->first())){
+                $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['muellimID'];
+                $new->reciever_id=$valideyn;
+                $new->sender_type='m';
+                $new->reciever_type='v';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-muellim'>Geri dön</a>";
+            }            
             
         }
 
@@ -209,60 +249,83 @@ class elaqeController extends Controller
      public function sendSagird(Request $request)
     {
         if ($request->kind=='1') {
-            $muellim=muellim::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['sagirdID'];
-            $new->reciever_id=$muellim;
-            $new->sender_type='s';
-            $new->reciever_type='m';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(muellim::where('email',$request->reciever)->first())){
+                $muellim=muellim::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['sagirdID'];
+                $new->reciever_id=$muellim;
+                $new->sender_type='s';
+                $new->reciever_type='m';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-sagird'>Geri dön</a>";
+            } 
+            
                 
         }
             
         if ($request->kind=='2') {
-            $sagird=sagird::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['sagirdID'];
-            $new->reciever_id=$sagird;
-            $new->sender_type='s';
-            $new->reciever_type='s';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(sagird::where('email',$request->reciever)->first())){
+                $sagird=sagird::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['sagirdID'];
+                $new->reciever_id=$sagird;
+                $new->sender_type='s';
+                $new->reciever_type='s';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-sagird'>Geri dön</a>";
+            } 
+            
             
         }
         if ($request->kind=='3') {
-            $admin=admin::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['sagirdID'];
-            $new->reciever_id=$admin;
-            $new->sender_type='s';
-            $new->reciever_type='a';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(admin::where('email',$request->reciever)->first())){
+                $admin=admin::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['sagirdID'];
+                $new->reciever_id=$admin;
+                $new->sender_type='s';
+                $new->reciever_type='a';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-sagird'>Geri dön</a>";
+            } 
+            
             
         }
         if ($request->kind=='4') {
-            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['sagirdID'];
-            $new->reciever_id=$valideyn;
-            $new->sender_type='s';
-            $new->reciever_type='v';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(valideynler::where('email',$request->reciever)->first())){
+                $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['sagirdID'];
+                $new->reciever_id=$valideyn;
+                $new->sender_type='s';
+                $new->reciever_type='v';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-sagird'>Geri dön</a>";
+            }           
             
         }
 
@@ -305,60 +368,82 @@ class elaqeController extends Controller
      public function sendValideyn(Request $request)
     {
         if ($request->kind=='1') {
-            $muellim=muellim::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['valideynID'];
-            $new->reciever_id=$muellim;
-            $new->sender_type='v';
-            $new->reciever_type='m';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(muellim::where('email',$request->reciever)->first())){
+                $muellim=muellim::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['valideynID'];
+                $new->reciever_id=$muellim;
+                $new->sender_type='v';
+                $new->reciever_type='m';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-valideyn'>Geri dön</a>";
+            }               
                 
         }
             
         if ($request->kind=='2') {
-            $sagird=sagird::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['valideynID'];
-            $new->reciever_id=$sagird;
-            $new->sender_type='v';
-            $new->reciever_type='s';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(sagird::where('email',$request->reciever)->first())){
+                $sagird=sagird::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['valideynID'];
+                $new->reciever_id=$sagird;
+                $new->sender_type='v';
+                $new->reciever_type='s';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-valideyn'>Geri dön</a>";
+            }                
             
         }
         if ($request->kind=='3') {
-            $admin=admin::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['valideynID'];
-            $new->reciever_id=$admin;
-            $new->sender_type='v';
-            $new->reciever_type='a';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(admin::where('email',$request->reciever)->first())){
+                $admin=admin::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['valideynID'];
+                $new->reciever_id=$admin;
+                $new->sender_type='v';
+                $new->reciever_type='a';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-valideyn'>Geri dön</a>";
+            } 
+            
             
         }
         if ($request->kind=='4') {
-            $valideyn=valideynler::where('email',$request->reciever)->first()->id;
-            $new= new elaqe;
-            $new->sender_id=$_SESSION['valideynID'];
-            $new->reciever_id=$valideyn;
-            $new->sender_type='v';
-            $new->reciever_type='v';
-            $new->title=$request->title;
-            $new->content=$request->content;
+            if(!is_null(valideynler::where('email',$request->reciever)->first())){
+                $valideyn=valideynler::where('email',$request->reciever)->first()->id;
+                $new= new elaqe;
+                $new->sender_id=$_SESSION['valideynID'];
+                $new->reciever_id=$valideyn;
+                $new->sender_type='v';
+                $new->reciever_type='v';
+                $new->title=$request->title;
+                $new->content=$request->content;
 
-            $new->save();
-            return back();
+                $new->save();
+                return back();
+            }else{
+                echo "Mesaj göndərilə bilmədi!";
+                echo "<a href='elaqe-valideyn'>Geri dön</a>";
+            } 
+            
             
         }
 

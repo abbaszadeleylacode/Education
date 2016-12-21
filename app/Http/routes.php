@@ -43,7 +43,7 @@ Route::post('/checkvalideyn','loginController@valideyn');
 
 
 //----------------REGISTER CONTROLLER----------------
-Route::post('/registercontrol','registerController@new');
+Route::post('/registercontrol','registerController@newCandidate');
 
 
 

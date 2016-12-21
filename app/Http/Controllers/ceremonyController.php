@@ -26,6 +26,7 @@ class ceremonyController extends Controller
 
     public function saveMeeting(Request $request)
     {
+        
     	ceremony::create($request->all());
     	return back()->with('success','Yığıncaq uğurla əlavə edildi');
     }

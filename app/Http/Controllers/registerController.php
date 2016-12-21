@@ -11,7 +11,7 @@ use App\sagird;
 
 class registerController extends Controller
 {
-     public function new(Request $request)
+     public function newCandidate(Request $request)
      {
      	
     	$new=new candidates;

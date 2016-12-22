@@ -46,23 +46,26 @@
 						<option value="9">9</option>
 						<option value="10">10</option>
 						<option value="11">11</option>
+						<option value="">Magistr</option>
 					</select>
 					<br>
-					<input type="text" placeholder="Şəhər" name="city" class="form-control">
+					<input type="text" placeholder="Şəhər" name="city" class="form-control" required>
 					<br>
-					<input type="text" placeholder="Ünvanınız" name="address" class="form-control">
+					<input type="text" placeholder="Ünvanınız" name="address" class="form-control" required>
 					<br>
-					<input type="text" placeholder="Vəsiqənizin nömrəsi" name="passport_no" class="form-control">
+					<input type="text" placeholder="Vəsiqənizin nömrəsi" name="passport_no" class="form-control" required>
 					<br>
-					<input type="file" placeholder="Şəkiliniz" name="photo" class="form-control">
+					<input type="file" placeholder="Şəkiliniz" name="photo" class="form-control" required>
 					<br>
-					<input type="email" placeholder="E-poçt ünvanınız" name="email" class="form-control">
+					<input type="email" placeholder="E-poçt ünvanınız" name="email" class="form-control" required>
 					<br>
-					<input type="password" placeholder="Şifrəniz" name="password" class="form-control">
+					<input type="password" placeholder="Şifrəniz" name="password" class="form-control" required min="10" max="100000000">
 					<br>
-					<input type="number" placeholder="Telefon nömrəniz" name="phone" class="form-control">
+					<input type="number" placeholder="Telefon nömrəniz" name="phone" class="form-control" required min="10" max="1000000000">
 					<br>
-					<input type="submit" value="Qeydiyyatdan keç" class="form-control submit">
+					<input type="submit" value="Qeydiyyatdan keç" class="form-control submit" required>
+					
+					<a href="{{url('admin-login')}}" class="btn-info form-control btn">Geri</a>
 
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 				</form>				
@@ -73,3 +76,23 @@
 </div>
 </body>
 </html>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Xanaları diqqət ilə doldurun!");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
+
+
+</script>
+

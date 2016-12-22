@@ -40,6 +40,7 @@
 					<input type="file" class="form-control" name="photo">
 					<br>
 					<input type="submit" value="Əlavə et" class="form-control submit">
+						<a href="{{url('quiz-muellim')}}" class="btn-info form-control btn">Geri</a>
 					
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 				</form>				

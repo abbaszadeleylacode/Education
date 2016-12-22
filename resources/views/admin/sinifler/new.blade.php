@@ -11,9 +11,9 @@
 	
 </head>
 <body style="background-image:url('assets/images/bg.jpg'); background-size:cover">
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="panel col-md-4 col-sm-10 col-xs-10 col-md-offset-4 col-sm-offset-1 col-xs-offset-1" style="margin-top:40px">
+		<div class="panel col-md-10 col-md-offset-1 " style="margin-top:40px">
 			<div class="panel-head">
 				<i class="fa fa-users"></i>
 			</div>
@@ -24,11 +24,11 @@
 					 @if ($message = Session::get('success'))
 				        <p>{{$message}}</p>
 				     @endif
-
+				     <div style="width: 78%; margin: auto;">
 					<input class="hidden" type="text" value="" name="id">
-					<input type="text" placeholder="Ad" name="text" class="form-control">
+					<input type="text" placeholder="Qrupun adını daxil edin" name="text" class="form-control"></div>
 					@if($errors->has('text'))
-			         <p style="color:red;text-align: left"><b>Ad yazın.</b></p>
+			         <p style="color:red;text-align: left"><b>Qrupu adlandırın</b></p>
 			        @endif
 					<br>
 					<p>Dərs cədvəli</p>
@@ -38,9 +38,11 @@
 					<textarea name="dord" id="" cols="30" rows="10" placeholder="Cümə axşamı"></textarea>
 					<textarea name="bes" id="" cols="30" rows="10" placeholder="Cümə"></textarea>
 					<textarea name="alti" id="" cols="30" rows="10" placeholder="Şənbə"></textarea>					
-					<input type="submit" value="Yarat" class="form-control submit">
-
+					<div style="width: 78%; margin: auto;">
+						<input type="submit" value="Yarat" class="form-control submit">
+					<a href="{{url('derscedveli')}}" class="btn-info form-control  btn">Geri</a>
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
+					</div>
 				</form>				
 				
 			</div> 

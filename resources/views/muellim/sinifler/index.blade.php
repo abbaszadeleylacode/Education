@@ -28,7 +28,7 @@
 		
 		<div class="container">
 			<a href="{{url('muellim-panel')}}" class="sagirdButton btn">Geri</a>
-			<a href="{{url('muellim-panel/logout')}}">Çıxış et</a>
+			<a class="btn btn-info" href="{{url('muellim-panel/logout')}}">Çıxış et</a>
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">

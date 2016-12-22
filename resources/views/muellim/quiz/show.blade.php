@@ -29,7 +29,7 @@
 
 		<div class="logo col-md-12">
 			<img src="{{url('assets/images/logo.png')}}">
-			<a href="{{url('muellim-panel/logout')}}">Çıxış et</a>
+			<a class="btn btn-info" href="{{url('muellim-panel/logout')}}">Çıxış et</a>
 		</div>
 		
 		<div class="container">

@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="logo col-md-12">
 			<img src="{{url('assets/images/logo.png')}}">	
-			<a href="{{url('admin-panel/logout')}}">Çıxış et</a>
+			<a class="btn btn-info" href="{{url('admin-panel/logout')}}">Çıxış et</a>
 		</div>
 		
 		<a href="{{url('settings-admin')}}">

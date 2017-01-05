@@ -37,7 +37,7 @@ use App\sinif;
 
 		<div class="logo col-md-12">
 			<img src="{{url('assets/images/logo.png')}}" alt="">
-			<a href="{{url('sagird-panel/logout')}}">Çıxış et</a>
+			<a class="btn btn-info" href="{{url('sagird-panel/logout')}}">Çıxış et</a>
 		</div>
 		
 		<div class="container">

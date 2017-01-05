@@ -40,6 +40,7 @@
 					<input type="date" class="form-control" name="time">
 					<br>
 					<input type="submit" value="Əlavə et" class="form-control submit">
+					<a href="{{url('meeting-muellim')}}" class="btn-info form-control btn">Geri</a>
 					
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 				</form>				

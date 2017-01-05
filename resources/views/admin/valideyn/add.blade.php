@@ -43,6 +43,7 @@
 					<input type="number" placeholder="Telefon nömrəniz" name="phone" class="form-control">
 					<br>
 					<input type="submit" value="Əlavə et" class="form-control submit">
+					<a class="btn btn-info form-control" href="{{url('admin-parents')}}">Geri</a>
 
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 				</form>				

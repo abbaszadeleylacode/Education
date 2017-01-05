@@ -11,11 +11,18 @@
 	
 </head>
 <body style="background-image:url('assets/images/bg.jpg'); background-size:cover">
+<div class="text-center">
+
+	<a href="{{url('muellim-login')}}" class="btn btn-info">Müəllim</a>
+<a href="{{url('sagird-login')}}" class="btn btn-info">Tələbə</a>
+<a href="{{url('admin-login')}}" class="btn btn-info">Administrator</a>
+</div>
 <div class="container-fluid">
 	<div class="row">
 		<div class="panel col-md-4 col-sm-10 col-xs-10 col-md-offset-4 col-sm-offset-1 col-xs-offset-1">
 			<div class="panel-head">
-				<i class="fa fa-lock"></i>
+				<i class="fa fa-lock"></i><br>
+				<h3 style="color:white">Valideyn girişi</h3>
 			</div>
 
 			<div class="panel-body">
@@ -25,11 +32,6 @@
 					<br>
 					<input type="password" class="form-control" placeholder="Şifrəniz" name="password">
 					<br>
-
-					<a href="{{url('muellim-login')}}">Müəllimsiniz?</a>
-					<a href="{{url('sagird-login')}}">Tələbəsiniz?</a>
-					<a href="{{url('admin-login')}}">Adminsiniz?</a>
-					
 					<input type="submit" value="Giriş Et" class="form-control submit">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 				</form>

@@ -9,6 +9,8 @@ use App\muellim;
 use App\admin;
 use App\sagird;
 use App\valideynler;
+
+use App\filiallar;
 class loginController extends Controller
 {
 
@@ -63,7 +65,9 @@ class loginController extends Controller
                 $admin=admin::where([['email',$email],['password',$password]])->first();
                 $_SESSION['adminTrue']='adminSistemde';
                 $_SESSION['adminId']=$admin->id;
-                return view('admin.index',compact('admin'));
+
+                $filiallar=filiallar::all();
+                return view('admin.filialsec',compact('filiallar'));
             }else{
                 return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
             }
@@ -76,7 +80,8 @@ class loginController extends Controller
                 $admin=admin::where([['email',$email],['password',$password]])->first();
                 $_SESSION['adminTrue']='adminSistemde';
                 $_SESSION['adminId']=$admin->id;
-                return view('admin.index',compact('admin'));
+                $filiallar=filiallar::all();
+                return view('admin.filialsec',compact('filiallar'));
             }else{
                 return back()->with('wrong','E-poçt və ya şifrə yanlışdır!');
             }

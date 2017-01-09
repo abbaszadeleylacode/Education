@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSinifsTable extends Migration
+class CreateFiliallarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +12,10 @@ class CreateSinifsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sinifs', function (Blueprint $table) {
+        Schema::create('filiallars', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('text');
-            $table->text('ders_cedveli');
-            $table->integer('filial_id');
+            $table->text('Filial_adi');
+            $table->text('Filial_unvani');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateSinifsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sinifs');
+        Schema::drop('filiallars');
     }
 }

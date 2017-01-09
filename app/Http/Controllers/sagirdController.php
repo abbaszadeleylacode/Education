@@ -14,13 +14,13 @@ class sagirdController extends Controller
 {
     public function index()
     {
-    	$sagirdler=sagird::all();
+    	$sagirdler=sagird::where('filial_id',$_SESSION['filial_id'])->get();
     	return view('admin.sagirdler',compact('sagirdler'));
     }
 
     public function teleb()
     {
-    	$telebler=candidates::all();
+    	$telebler=candidates::where('filial_id',$_SESSION['filial_id'])->get();
     	return view('admin.teleb.teleb',compact('telebler'));
     }
 
@@ -41,7 +41,7 @@ class sagirdController extends Controller
     {
         $ad=$request->ad;
         $soyad=$request->soyad;
-        $sagirdler=sagird::where([['name',$ad],['surname',$soyad]])->get();
+        $sagirdler=sagird::where([['name',$ad],['surname',$soyad],['filial_id',$_SESSION['filial_id']]])->get();
         return view('admin.sagird.tapilan',compact('sagirdler'));
     }
 

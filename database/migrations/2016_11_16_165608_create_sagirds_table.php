@@ -29,6 +29,7 @@ class CreateSagirdsTable extends Migration
             $table->integer('phone');
             $table->text('code');
             $table->integer('qayib');
+            $table->integer('filial_id');
             $table->timestamps();
         });
     }

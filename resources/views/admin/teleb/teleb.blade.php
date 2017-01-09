@@ -24,6 +24,9 @@
 			margin-left: 5px;
 			background: none;
 		}
+		.panel{
+			display: none;
+		}
 	</style>
 </head>
 <body>
@@ -53,6 +56,7 @@
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 
 			</form>
+			
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+@php
+use App\filiallar;
+$filiallar=filiallar::all();
+@endphp
 <html>
 <head>
 	<title>Qeydiyyat</title>
@@ -47,6 +51,13 @@
 						<option value="10">10</option>
 						<option value="11">11</option>
 						<option value="">Magistr</option>
+					</select>
+					<br>
+					<select name="filial_id" id="" value="Filial Seçin" class="form-control">
+
+						@foreach($filiallar as $filial)
+							<option value="{{$filial->id}}">{{$filial->Filial_adi}}</option>
+						@endforeach
 					</select>
 					<br>
 					<input type="text" placeholder="Şəhər" name="city" class="form-control" required>

@@ -49,9 +49,10 @@ Route::post('/registercontrol','registerController@newCandidate');
 
 //----------------Admin Panel----------------
 if (isset($_SESSION['adminTrue'])) {
-	Route::get('/admin-panel', function () {
-	    return view('admin.index');
-	}); 	
+	Route::get('/admin-panel', function(){
+		return view('admin.index');
+	}); 
+	Route::get('/admin-panel/{id}', 'filialController@adminPanel'); 	
 	Route::get('admin-panel/logout','loginController@logoutAdmin');
 
 	Route::get('settings-admin','settingsController@indexAdmin');

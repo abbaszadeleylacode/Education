@@ -22,6 +22,7 @@ class CreateMuellimsTable extends Migration
             $table->text('fenn');
             $table->text('avatar');
             $table->integer('phone');
+            $table->integer('filial_id');
             $table->timestamps();
         });
     }

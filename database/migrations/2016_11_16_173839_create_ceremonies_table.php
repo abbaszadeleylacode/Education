@@ -19,6 +19,7 @@ class CreateCeremoniesTable extends Migration
             $table->text('about');
             $table->text('sinif_id');
             $table->text('time');
+            $table->integer('filial_id');
             $table->timestamps();
         });
     }

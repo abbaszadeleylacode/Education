@@ -47,7 +47,7 @@
 			<br>
 			<strong>Ata adı: {{$telebler->ata_adi}}</strong>
 			<br>
-			<strong>Yaş: {{$telebler->age}}</strong>
+			<strong>Təvəllüd: {{$telebler->age}}</strong>
 			<br>
 			<strong>Sinif: {{$telebler->sinif_id}}</strong>
 			<br>

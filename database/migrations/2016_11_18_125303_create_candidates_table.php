@@ -30,6 +30,7 @@ class CreateCandidatesTable extends Migration
             $table->text('password');
 
             $table->integer('phone');
+            $table->integer('filial_id');
 
 
             $table->timestamps();

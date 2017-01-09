@@ -20,7 +20,8 @@ class registerController extends Controller
     	$new->surname=$request->surname;
     	$new->ata_adi=$request->ata_adi;
     	$new->age=$request->age;
-    	$new->sinif_id=$request->sinif_id;
+        $new->sinif_id=$request->sinif_id;
+    	$new->filial_id=$request->filial_id;
     	$new->city=$request->city;
     	$new->address=$request->address;
     	$new->passport_no=$request->passport_no;
@@ -54,11 +55,13 @@ class registerController extends Controller
      	$sagird->password=$teleb->password;
      	$sagird->email=$teleb->email;
      	$sagird->age=$teleb->age;
-     	$sagird->sinif_id=$teleb->sinif_id;
+        $sagird->sinif_id=$teleb->sinif_id;
+     	$sagird->filial_id=$teleb->filial_id;
      	$sagird->ata_adi=$teleb->ata_adi;
      	$sagird->city=$teleb->city;
      	$sagird->passport_no=$teleb->passport_no;
-     	$sagird->phone=$teleb->phone;
+        $sagird->phone=$teleb->phone;
+     	
      	$sagird->save();
      	$teleb->delete();
      	return back();

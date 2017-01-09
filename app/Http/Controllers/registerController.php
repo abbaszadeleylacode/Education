@@ -84,7 +84,7 @@ class registerController extends Controller
     {
         $ad=$request->ad;
         $soyad=$request->soyad;
-        $sagirdler=candidates::where([['name',$ad],['surname',$soyad]])->get();
+        $sagirdler=candidates::where([['name',$ad],['surname',$soyad],['filial_id',$_SESSION['filial_id']]])->get();
         return view('admin.teleb.tapilan',compact('sagirdler'));
     }
 

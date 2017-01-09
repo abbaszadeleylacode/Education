@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\candidates;
 
 use App\sagird;
+use App\qayibController;
 
 class sagirdController extends Controller
 {
@@ -76,6 +77,11 @@ class sagirdController extends Controller
         $qayib=$qayib+1;
         $sagird->qayib=$qayib;
         $sagird->save();
+
+        $qayib=new qayibController;
+        $qayib->muellim_id=$_SESSION['muellimID'];
+        $qayib->sagird_id=$id;
+        $qayib->save();
         return back();
     }
 

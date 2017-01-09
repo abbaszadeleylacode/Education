@@ -48,7 +48,8 @@ class muellimController extends Controller
     		$new->avatar=$path;
     	}
 
-    	$new->email=$request->email;
+        $new->email=$request->email;
+    	$new->filial_id=$_SESSION['filial_id'];
     	$new->password=$request->password;
     	$new->phone=$request->phone;
 
@@ -65,7 +66,7 @@ class muellimController extends Controller
                 ]);
         $ad=$request->ad;
         $soyad=$request->soyad;
-        $muellimler=muellim::where([['name',$ad],['surname',$soyad]])->get();
+        $muellimler=muellim::where([['name',$ad],['surname',$soyad],['filial_id',$_SESSION['filial_id']]])->get();
         return view('admin.muellim.tapilan',compact('muellimler'));
     }
 

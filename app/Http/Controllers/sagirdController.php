@@ -68,7 +68,8 @@ class sagirdController extends Controller
     public function showMuellim($id)
     {
         $sagirdler=sagird::find($id);
-        return view('muellim.sagird.show',compact('sagirdler'));
+        $qayiblar=qayibController::where('sagird_id',$id)->get();
+        return view('muellim.sagird.show',compact('sagirdler','qayiblar'));
     }
 
     public function qayib($id)

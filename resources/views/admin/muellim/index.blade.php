@@ -83,7 +83,7 @@
 							<td>
 								<img src="{{$muellim->avatar}}" alt="">
 							</td>
-							<td>{{$muellim->ders_id}}</td>
+							<td>{{$muellim->fenn}}</td>
 							<td>{{$muellim->email}}</td>
 							<td>{{$muellim->phone}}</td>
 							<td>

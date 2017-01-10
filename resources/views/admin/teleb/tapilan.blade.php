@@ -73,6 +73,10 @@
 										<i class="fa fa-eye"></i>
 									</a>
 
+									<a href="{{url('accept',$sagird->id)}}" class="btn btn-xs btn-success">
+										<i class="fa fa-check"></i>
+									</a>
+
 									<a href="{{url('deletesagird',$sagird->id)}}" class="btn btn-xs btn-danger">
 										<i class="fa fa-trash"></i>
 									</a>

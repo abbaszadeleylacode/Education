@@ -52,7 +52,7 @@
 								<td>{{$muellim->id}}</td>
 								<td>{{$muellim->name}}</td>
 								<td>{{$muellim->surname}}</td>
-								<td>{{$muellim->ders_id}}</td>
+								<td>{{$muellim->fenn}}</td>
 								<td>
 									<img src="{{$muellim->avatar}}" alt="">	
 								</td>

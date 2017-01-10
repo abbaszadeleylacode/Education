@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	@php
+	use App\muellim;
+	@endphp
 	<title>Şagirdlər</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,7 +61,35 @@
 			<strong>Vəsiqə №: {{$sagirdler->passport_no}}</strong>
 			<br>
 			<strong>E-poçt ünvanı: {{$sagirdler->email}}</strong>
+
+			<h2><b>QAYIBLAR</b></h2>
+			<table class="bluetable table table-striped">
+				<thead>
+					<tr>
+						<td>Qayıb tarixi</td>
+						<td>Müəllim</td>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($qayiblar as $qayib)
+					<tr>
+						<td>{{$qayib->created_at}}</td>
+						<td>
+							@php
+								$muellim=muellim::find($qayib->muellim_id);
+							@endphp
+							{{$muellim->name.' '.$muellim->surname}}
+						</td>
+					</tr>
+					@endforeach
+					<tr style="background: red;color:white">
+						<td>Cəmi:</td>
+						<td>{{count($qayiblar)}}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
+
 	</div>
 </div>
 </body>

@@ -61,8 +61,8 @@ class muellimController extends Controller
      public function axtaris(Request $request)
     {
         $this->validate($request,[
-                'name'=>'required',
-                'surname'=>'required',
+                'ad'=>'required',
+                'soyad'=>'required',
                 ]);
         $ad=$request->ad;
         $soyad=$request->soyad;

@@ -28,7 +28,8 @@ class sagirdController extends Controller
     public function show($id)
     {
         $sagirdler=sagird::find($id);
-        return view('admin.sagird.show',compact('sagirdler'));
+        $qayiblar=qayibController::where('sagird_id',$id)->get();
+        return view('admin.sagird.show',compact('sagirdler','qayiblar'));
     }
 
     public function delete($id)

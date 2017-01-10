@@ -17,6 +17,7 @@ class CreateImtahansTable extends Migration
             $table->increments('id');
             $table->integer('muellim_id');
             $table->text('sinif_id');
+            $table->text('filial_id');
             $table->text('melumat');
             $table->text('imtahan_tarixi');
             $table->timestamps();

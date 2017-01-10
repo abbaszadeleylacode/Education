@@ -64,14 +64,14 @@ class registerController extends Controller
      	
      	$sagird->save();
      	$teleb->delete();
-     	return back();
+     	return redirect('telebsiyahisi');
      }
 
      public function reject($id)
      {
      	$reject=candidates::find($id);
      	$reject->delete();
-     	return back();
+     	return redirect('telebsiyahisi');
      }
 
      public function show($id)

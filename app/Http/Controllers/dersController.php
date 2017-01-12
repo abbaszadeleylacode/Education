@@ -156,7 +156,9 @@ class dersController extends Controller
     public function showMuellim($id)
     {
         $sinif=sinif::find($id);
-        return view('muellim.sinifler.show',compact('sinif'));
+        $sagirdler=sagird::where('sinif_id',$sinif->text)->get();
+
+        return view('muellim.sinifler.show',compact('sinif','sagirdler'));
     }
 
 

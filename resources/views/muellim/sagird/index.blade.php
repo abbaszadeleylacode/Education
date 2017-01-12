@@ -91,10 +91,6 @@
 								<a href="{{url('showsagird(muellim)',$sagird->id)}}" class="btn btn-xs btn-default">
 									<i class="fa fa-eye"></i>
 								</a>
-
-								<a href="{{url('qayib',$sagird->id)}}" class="btn btn-xs btn-danger">
-									<i>q</i>
-								</a>
 							</td>
 						</tr>
 					@endforeach

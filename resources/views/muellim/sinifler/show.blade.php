@@ -21,7 +21,7 @@
 			margin-top: -50px;
 		}
 		img{
-			height: 150px;
+			height: 50px;
 		}
 	</style>
 </head>
@@ -80,8 +80,58 @@
 					<td>{{$list[6]}}</td>
 				</tr>
 			</table>
+
+
+			<h1>ŞAGİRDLƏR</h1>
+
+			<table class="bluetable table table-striped">
+				<thead>
+					<tr>
+						<td>Ad</td>
+						<td>Soyad</td>
+						<td>Ata adı</td>
+						<td>Təvəllüd</td>
+						<td>Şəhər</td>
+						<td>Ünvan</td>
+						<td>Şəkil</td>
+						<td>E-poçt ünvanı</td>
+						<td>Qayıb sayı</td>
+						<td>Telefon</td>
+						<td>Əməllər</td>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($sagirdler as $sagird)
+					<tr>
+						<td>{{$sagird->name}}</td>
+						<td>{{$sagird->surname}}</td>
+						<td>{{$sagird->ata_adi}}</td>
+						<td>{{$sagird->age}}</td>
+						<td>{{$sagird->city}}</td>
+						<td>{{$sagird->address}}</td>
+						<td>
+							<img src="../{{$sagird->avatar}}" alt="">
+						</td>
+						<td>{{$sagird->email}}</td>
+						<td>{{$sagird->qayib}}</td>
+						<td>{{$sagird->phone}}</td>
+
+						<td>
+							<a href="{{url('showsagird(muellim)',$sagird->id)}}" class="btn btn-xs btn-default">
+								<i class="fa fa-eye"></i>
+							</a>
+
+							<a href="{{url('qayib',$sagird->id)}}" class="btn btn-xs btn-danger">
+								<i>q</i>
+							</a>
+						</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
 </body>
 </html>
+

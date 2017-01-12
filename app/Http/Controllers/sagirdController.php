@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\candidates;
-
+use App\muellim_sinif;
 use App\sagird;
 use App\qayibController;
 

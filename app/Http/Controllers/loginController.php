@@ -92,9 +92,13 @@ class loginController extends Controller
     public function logoutAdmin()
     {
         if(isset($_SESSION['adminTrue'])){
+
             session_unset($_SESSION['adminTrue']);
+            session_unset($_SESSION['adminId']);
+            session_unset($_SESSION['filial_id']);
             session_destroy();
-            return redirect('/');
+            return redirect('/admin-login');
+
         }
     }
 

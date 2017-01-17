@@ -24,11 +24,12 @@
 
 		<div class="logo col-md-12">
 			<img src="{{url('assets/images/logo.png')}}" alt="">
+			<a class="btn btn-info" href="{{url('muellim-panel/logout')}}">Çıxış et</a>
 		</div>
 		
 		<div class="container">
 			<a href="{{url('muellim-panel')}}" class="sagirdButton btn">Geri</a>
-			<a class="btn btn-info" href="{{url('muellim-panel/logout')}}">Çıxış et</a>
+			
 
 			{{-- Table========================== --}}
 			<table class="bluetable table table-striped">

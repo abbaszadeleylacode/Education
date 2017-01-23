@@ -14,7 +14,7 @@
 <div class="container-fluid">
 	
 	<div class="row">
-		<div class="logo col-md-12">
+		<div class="logo col-md-12 col-sm-12 col-xs-12">
 			<img src="{{url('assets/images/logo.png')}}" alt="">
 			<a class="btn btn-info" href="{{url('sagird-panel/logout')}}">Çıxış et</a>
 		</div>
@@ -38,66 +38,66 @@
 			});
 		</script>
 
-		<div class="sagird col-md-3 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('sagirdsiyahisi-sagird')}}">
-					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər">
+					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="quiz col-md-2 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('quiz-sagird')}}">
-					<img src="{{url('assets/images/admin/quizzes.jpg')}}" title="Quizlər">
+					<img src="{{url('assets/images/admin/quizzes.jpg')}}" title="Quizlər" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="meeting col-md-2 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('meeting-sagird')}}">
-					<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar">
+					<img src="{{url('assets/images/admin/meeting.jpg')}}" title="Yığıncaqlar" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="dersCedveli col-md-2 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('derscedveli-sagird')}}">
-					<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli">
+					<img src="{{url('assets/images/admin/schedule.jpg')}}" title="Dərs Cədvəli" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="muellimler col-md-3 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('muellimsiyahisi-sagird')}}">
-					<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər">
+					<img src="{{url('assets/images/admin/teachers.jpg')}}" title="Müəllimlər" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="valideyn col-md-3 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('sagird-parents')}}">
-					<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər">
+					<img src="{{url('assets/images/admin/parents.jpg')}}" title="Valideynlər" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="elaqe col-md-6 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('elaqe-sagird')}}">
-					<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə">
+					<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə" class="img img-responsive">
 				</a>
 			</div>
 		</div>
 
-		<div class="imtahan col-md-3 donenHisseler col-sm-12 col-xs-12">
+		<div class=" col-md-3  col-sm-12 col-xs-12">
 			<div class="row">
 				<a href="{{url('imtahanlar-sagird')}}">
-					<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar">
+					<img src="{{url('assets/images/admin/exams.jpg')}}" title="İmtahanlar" class="img img-responsive">
 				</a>
 			</div>
 		</div>
@@ -107,7 +107,7 @@
 
 
 		{{-- Mobile ucun olan hisseler --}}
-		<ul class="col-md-10 col-md-offset-1">
+		{{-- <ul class="col-md-10 col-md-offset-1">
 			<li class="col-md-10 col-md-offset-1">
 				<a href="{{url('sagirdsiyahisi-sagird')}}">
 					<img src="{{url('assets/images/admin/students.jpg')}}" title="Şagirdlər" class="img img-responsive">
@@ -155,7 +155,7 @@
 					<img src="{{url('assets/images/admin/contact.jpg')}}" title="Əlaqə" class="img img-responsive">
 				</a>
 			</li>
-		</ul>
+		</ul> --}}
 	</div>
 
 </div>
